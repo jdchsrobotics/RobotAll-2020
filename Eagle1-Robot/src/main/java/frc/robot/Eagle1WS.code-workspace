@@ -1,0 +1,20 @@
+{
+	"folders": [
+		{
+			"path": "C:\\Users\\jgarz\\Documents\\2020-TestCode\\Eagle1-Robot"
+		},
+		{
+			"name": "Eagles2020Java",
+			"path": "C:\\Users\\jgarz\\Documents\\2020-TestCode\\Eagle1-Robot\\Eagles2020Java"
+		}
+	],
+	"settings": {
+		"java.configuration.updateBuildConfiguration": "automatic",
+		"files.exclude": {
+			"**/.classpath": true,
+			"**/.project": true,
+			"**/.settings": true,
+			"**/.factorypath": true
+		}
+	}
+}
