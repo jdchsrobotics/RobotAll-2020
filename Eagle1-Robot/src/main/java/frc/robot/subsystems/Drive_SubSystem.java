@@ -6,7 +6,11 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot.subsystems;
-// import frc.robot.RobotMap
+
+
+import frc.robot.Constants.eagle_DriveConstants;
+
+
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
@@ -19,15 +23,16 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 public class Drive_SubSystem extends SubsystemBase {
-  /**
-   * Creates a new ExampleSubsystem.
-   */
+
+    /**
+     * Creates a new ExampleSubsystem.
+     */
 
  // LEft Motor 1/4, right motor 2/3 
-  private final CANSparkMax m_leftMotor = new CANSparkMax(1, MotorType.kBrushless);
-  private final CANSparkMax m_leftMotorSlave = new CANSparkMax(4, MotorType.kBrushless);
-  private final CANSparkMax m_rightMotor = new CANSparkMax(2, MotorType.kBrushless);
-  private final CANSparkMax m_rightMotorSlave = new CANSparkMax(3, MotorType.kBrushless);
+  private final CANSparkMax m_leftMotor = new CANSparkMax(eagle_DriveConstants.leftMotorCanID, MotorType.kBrushless);
+  private final CANSparkMax m_leftMotorSlave = new CANSparkMax(eagle_DriveConstants.leftSlaveMotorCanID, MotorType.kBrushless);
+  private final CANSparkMax m_rightMotor = new CANSparkMax(eagle_DriveConstants.rightMotorCanID, MotorType.kBrushless);
+  private final CANSparkMax m_rightMotorSlave = new CANSparkMax(eagle_DriveConstants.rightSlaveMotorCanID, MotorType.kBrushless);
 // 1,4   tight2,3
 
 // Tie Front and Back Motors together on each side
