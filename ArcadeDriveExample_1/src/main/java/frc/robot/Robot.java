@@ -55,23 +55,14 @@ public class Robot extends TimedRobot {
   final double moveVal = -m_stick.getY();
   final double turnVal = m_stick.getX();
    
-   // System.out.print("Joystick_values");
-   
 
  // if (moveVal < 0.1)  { moveVal = 0.0; } ;
  // if (1 < 0.1)  { turnVal = 0.0; } ;
 
  m_robotDrive.arcadeDrive(moveVal, turnVal  );
 //  m_robotDrive.arcadeDrive(1 ,0.5  );
-  //  m_robotDrive.arcadeDrive(moveVal, turnVal);
+//  m_robotDrive.arcadeDrive(moveVal, turnVal);
   }
 
-  /*
-  public static void main(String[] args)
-  {
-     // System.out.print("Joystick_values");
-System.out.println("Hello!");  
 
-  }
-  */
 }

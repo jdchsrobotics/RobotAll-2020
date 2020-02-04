@@ -8,10 +8,17 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
-// Add when COMMAND file .java is fixed import frc.robot.commands.Teleop_Drive;
-import frc.robot.subsystems.Drive_SubSystem;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.RunCommand;
+
+// Add when COMMAND file .java is fixed import frc.robot.commands.Teleop_Drive;
+
+import frc.robot.subsystems.Drive_SubSystem;
+import frc.robot.Constants.eagle_DriveConstants;
+import frc.robot.Constants.OI_Constants;
+
 
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -21,13 +28,20 @@ import edu.wpi.first.wpilibj2.command.Command;
  */
 public class RobotContainer {
  
-
- 
   // The robot's subsystems and commands are defined here...
-  private final Drive_SubSystem m_exampleSubsystem = new Drive_SubSystem();
+  private final Drive_SubSystem m_robotDrive = new Drive_SubSystem();
+  // define these subsystems when created in code: 
+  // Climber
+  // Color Wheel
+  // Ball Management (shooting and/or pickup)
+
+  // Define the joystick for driver
+  private final Joystick m_stick = new Joystick(OI_Constants.Joystick_1_portID);
+
 
   // FIx after commands are fixed
-  private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
+  // ACTION NEEDED TO ADJUST:
+  // private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
 
 
 
@@ -37,6 +51,15 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
+
+// FIX -> needs the archade drive exposed or synctax fixed
+    m_robotDrive.setDefaultCommand(
+         new RunCommand(() -> m_robotDrive.arcadeDrive (
+                                m_stick.getY()
+                                , m_stick.getX()  ),
+                m_robotDrive
+         )
+    );
   }
 
   /**

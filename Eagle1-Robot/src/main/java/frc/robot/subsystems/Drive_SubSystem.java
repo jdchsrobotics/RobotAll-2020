@@ -36,12 +36,100 @@ public class Drive_SubSystem extends SubsystemBase {
 private final SpeedControllerGroup m_left  = new SpeedControllerGroup(m_leftMotor, m_leftMotorSlave);
 private final SpeedControllerGroup m_right = new SpeedControllerGroup(m_rightMotor, m_rightMotorSlave);
 
+// NOTE Above could be coded as :::  
+/*****
+ * 
+ * private final SpeedControllerGroup m_left  = new SpeedControllerGroup(
+ *    new CANSparkMax(eagle_DriveConstants.leftMotorCanID, MotorType.kBrushless)
+ *   ,new CANSparkMax(eagle_DriveConstants.leftSlaveMotorCanID, MotorType.kBrushless)
+ *  );
+ * private final SpeedControllerGroup m_right  = new SpeedControllerGroup(
+ *    new CANSparkMax(eagle_DriveConstants.rightMotorCanID, MotorType.kBrushless)
+ *   ,new CANSparkMax(eagle_DriveConstants.rightSlaveMotorCanID, MotorType.kBrushless)
+ *  );
+ * 
+ ******/
+
 private final DifferentialDrive m_robotDrive = new DifferentialDrive(m_left, m_right);
 
-  public Drive_SubSystem() {
-// call command????  to drive??
+// NOTE:  Encoder code should go here when ready to use it
+/***** 
+  // The left-side drive encoder
+  private final Encoder m_leftEncoder =
+      new Encoder(DriveConstants.kLeftEncoderPorts[0], DriveConstants.kLeftEncoderPorts[1],
+                  DriveConstants.kLeftEncoderReversed);
+
+  // The right-side drive encoder
+  private final Encoder m_rightEncoder =
+      new Encoder(DriveConstants.kRightEncoderPorts[0], DriveConstants.kRightEncoderPorts[1],
+                  DriveConstants.kRightEncoderReversed);
+
+ //   Creates a new DriveSubsystem.
+   
+  public DriveSubsystem() {
+    // Sets the distance per pulse for the encoders
+    m_leftEncoder.setDistancePerPulse(DriveConstants.kEncoderDistancePerPulse);
+    m_rightEncoder.setDistancePerPulse(DriveConstants.kEncoderDistancePerPulse);
+  }
+
+  public DriveSubSystem() {
+     m_robotDrive.arcadeDrive(xSpeed, zRotation);
 
   }
+
+*************/
+
+  /**
+   * Drives the robot using arcade controls.
+   *
+   * @param fwd the commanded forward movement
+   * @param rot the commanded rotation
+   */
+  public void arcadeDrive(double fwd, double rot) {
+    m_robotDrive.arcadeDrive(fwd, rot);
+  }
+
+
+// Once Encoders are used need something like this
+/**
+ * 
+ *  
+   * Resets the drive encoders to currently read a position of 0.
+   
+  public void resetEncoders() {
+    m_leftEncoder.reset();
+    m_rightEncoder.reset();
+  }
+
+  
+   * Gets the average distance of the two encoders.
+   *
+   * @return the average of the two encoder readings
+   
+  public double getAverageEncoderDistance() {
+    return (m_leftEncoder.getDistance() + m_rightEncoder.getDistance()) / 2.0;
+  }
+
+  
+   * Gets the left drive encoder.
+   *
+   * @return the left drive encoder
+   
+  public Encoder getLeftEncoder() {
+    return m_leftEncoder;
+  }
+
+  
+   * Gets the right drive encoder.
+   *
+   * @return the right drive encoder
+   
+  public Encoder getRightEncoder() {
+    return m_rightEncoder;
+  }
+ * 
+ */
+
 
   @Override
   public void periodic() {

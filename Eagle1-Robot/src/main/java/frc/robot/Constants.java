@@ -29,7 +29,7 @@ public final class Constants {
 }
 
     // Input/OI Type devices
-    public static final class InputConstants {
+    public static final class OI_Constants {
         // Joystick - port 1
         public static final int Joystick_1_portID = 0;
 
