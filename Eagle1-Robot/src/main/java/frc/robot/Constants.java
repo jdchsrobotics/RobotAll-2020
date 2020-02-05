@@ -34,4 +34,11 @@ public final class Constants {
         public static final int Joystick_1_portID = 0;
 
     }
+    public static final class Xbox_Constants {
+        public static final int Xbox_Button_Y = 4;
+        //Double check the values for buttons
+    }
+
+
+
 }
