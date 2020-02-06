@@ -11,14 +11,14 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 // import java.util.function.DoubleSupplier;
 
-import frc.robot.subsystems.Drive_SubSystem;
+import frc.robot.subsystems.DriveSubSystem;
 
 /**
  * An example command that uses an example subsystem.
  */
 public class Default_Drive extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final Drive_SubSystem m_drive;
+  private final DriveSubSystem m_drive;
   private final Double m_forward;
   private final Double m_rotation;
   // private final DoubleSupplier m_forward;
@@ -31,7 +31,7 @@ public class Default_Drive extends CommandBase {
   // if Using double supplier 
   //   public Default_Drive (Drive_SubSystem subsystem, DoubleSupplier forward, doubleSupplier rotation) {
 
-  public Default_Drive (Drive_SubSystem subsystem, Double forward, double rotation) {
+  public Default_Drive (DriveSubSystem subsystem, Double forward, double rotation) {
     m_drive = subsystem;
     m_forward = forward;
     m_rotation = rotation;
