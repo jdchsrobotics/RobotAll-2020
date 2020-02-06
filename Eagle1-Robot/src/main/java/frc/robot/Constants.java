@@ -36,6 +36,9 @@ public final class Constants {
     }
     public static final class Xbox_Constants {
         public static final int Xbox_Button_Y = 4;
+        public static final int Xbox_Button_A = 1;
+        public static final int Xbox_Button_B = 2;
+        public static final int Xbox_Button_X = 3;
         //Double check the values for buttons
     }
 
