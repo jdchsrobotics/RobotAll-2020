@@ -19,7 +19,7 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
-public class Drive_SubSystem extends SubsystemBase {
+public class DriveSubSystem extends SubsystemBase {
 
     /**
      * Creates a new ExampleSubsystem.
