@@ -35,10 +35,17 @@ public final class Constants {
 
     }
     public static final class Xbox_Constants {
-        public static final int Xbox_Button_A = 1;
-        public static final int Xbox_Button_B = 2;
-        public static final int Xbox_Button_X = 3;
-        public static final int Xbox_Button_Y = 4;
+        public static final int XboxButtonA = 1;
+        public static final int XboxButtonB = 2;
+        public static final int XboxButtonX = 3;
+        public static final int XboxButtonY = 4;
+
+        public static final int XboxLeftBumper = 5;
+        public static final int XboxRightBumper = 6;
+
+        public static final int XboxStartButton = 7;
+        public static final int XboxMenuButton = 8;
+
 
         //Double check the values for buttons
     }
