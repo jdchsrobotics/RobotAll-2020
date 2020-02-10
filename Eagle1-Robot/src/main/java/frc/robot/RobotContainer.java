@@ -53,7 +53,7 @@ public class RobotContainer {
 // FIX -> needs the archade drive exposed or synctax fixed
     m_robotDrive.setDefaultCommand(
          new RunCommand(() -> m_robotDrive.arcadeDrive (
-                                m_stick.getY()
+                                (-1 * m_stick.getY())
                                 , m_stick.getX()  ),
                 m_robotDrive
          )

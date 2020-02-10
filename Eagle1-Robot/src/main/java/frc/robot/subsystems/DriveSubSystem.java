@@ -86,6 +86,15 @@ private final DifferentialDrive m_robotDrive = new DifferentialDrive(m_left, m_r
    * @param rot the commanded rotation
    */
   public void arcadeDrive(double fwd, double rot) {
+
+    if(fwd >= -0.1 && fwd <= 0.1){
+      fwd = 0;
+    }
+
+    if(rot >= -0.1 && rot <= 0.1){
+      rot = 0;
+    }
+
     m_robotDrive.arcadeDrive(fwd, rot);
   }
 
