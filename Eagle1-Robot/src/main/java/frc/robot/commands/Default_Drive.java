@@ -31,7 +31,7 @@ public class Default_Drive extends CommandBase {
   // if Using double supplier 
   //   public Default_Drive (Drive_SubSystem subsystem, DoubleSupplier forward, doubleSupplier rotation) {
 
-  public Default_Drive (DriveSubSystem subsystem, Double forward, double rotation) {
+  public Default_Drive (DriveSubSystem subsystem, double forward, double rotation) {
     m_drive = subsystem;
     m_forward = forward;
     m_rotation = rotation;
@@ -40,19 +40,19 @@ public class Default_Drive extends CommandBase {
     addRequirements(m_drive);
   }
 
-  // Called when the command is initially scheduled.
-  @Override
-  public void initialize() {
-  }
-
-  // Called every time the scheduler runs while the command is scheduled.
+    // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
     m_drive.arcadeDrive(m_forward, m_rotation);
-    // if using doublesupplier   
-    //  m_drive.arcadeDrive(m_forward.getAsDouble(), m_rotation.getAsDouble());
-    // 
   }
+
+
+  // Called when the command is initially scheduled.
+  @Override
+  public final  void initialize() {
+  }
+
+
 
   // Called once the command ends or is interrupted.
   @Override

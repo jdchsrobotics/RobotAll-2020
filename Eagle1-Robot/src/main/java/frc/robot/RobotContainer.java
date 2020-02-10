@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj2.command.RunCommand;
 // Add when COMMAND file .java is fixed import frc.robot.commands.Teleop_Drive;
 
 import frc.robot.subsystems.DriveSubSystem;
-import frc.robot.Constants.eagle_DriveConstants;
+// import frc.robot.Constants.eagle_DriveConstants;
 import frc.robot.Constants.OI_Constants;
 
 
@@ -39,11 +39,9 @@ public class RobotContainer {
   private final Joystick m_stick = new Joystick(OI_Constants.Joystick_1_portID);
 
 
-  // FIx after commands are fixed
+  // FIx after commands are fixed (for autonomous)
   // ACTION NEEDED TO ADJUST:
   // private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
-
-
 
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
@@ -74,11 +72,16 @@ public class RobotContainer {
 
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
-   *
+   *  FIX for AUTO: Need to uncommend have have our Automnomos code.
    * @return the command to run in autonomous
    */
+
+
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return m_autoCommand;
+    return (null);
+   // return m_autoCommand;
   }
+ 
+  
 }
