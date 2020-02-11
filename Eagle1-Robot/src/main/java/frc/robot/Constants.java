@@ -50,6 +50,12 @@ public final class Constants {
         //Double check the values for buttons
     }
 
+    public static final class AutoConstants {
+        public static final double AutoDriveSpeed = 0.5;
+        public static final double AutoDriveRotation = 0.5;
 
+        public static final double AutoREBDriveSpeed = -0.5;
+        public static final double AutoREBDriveRotation = -0.5;
+      }
 
 }
