@@ -10,15 +10,20 @@ package frc.robot.subsystems;
 import frc.robot.Constants.eagle_DriveConstants;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
-import edu.wpi.first.wpilibj.TimedRobot;
+// import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 // needed for CAN Spark MAx 
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import com.revrobotics.CANEncoder;
+import com.revrobotics.CANDigitalInput;
+import com.revrobotics.CANPIDController;
+import com.revrobotics.EncoderType;
+import com.revrobotics.ControlType;
 
+// Add Encoder 
 public class DriveSubSystem extends SubsystemBase {
 
     /**
@@ -53,6 +58,10 @@ private final SpeedControllerGroup m_right = new SpeedControllerGroup(m_rightMot
 private final DifferentialDrive m_robotDrive = new DifferentialDrive(m_left, m_right);
 
 // NOTE:  Encoder code should go here when ready to use it
+// NOTE DIAGNOSE ACTION NEEDED - we need to find this method call and understand it 
+// m_left_drive_encoder = m_left.getAverageEncoderDistance();
+// m_right_drive_encoder = m_right.getAverageEncoderDistance();
+
 /***** 
   // The left-side drive encoder
   private final Encoder m_leftEncoder =
