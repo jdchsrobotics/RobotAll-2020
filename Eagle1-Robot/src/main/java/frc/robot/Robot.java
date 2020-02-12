@@ -10,8 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -23,8 +22,6 @@ public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
   private RobotContainer m_robotContainer;
 
-// ACTION _ FIx after we configure the Talon
-  TalonSRX mytalontest = new TalonSRX(0);
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -37,7 +34,7 @@ public class Robot extends TimedRobot {
     m_robotContainer = new RobotContainer();
     
     // ACTION - fix after the talons are configured
-    mytalontest.set(ControlMode.PercentOutput, 0);
+   //  mytalontest.set(ControlMode.PercentOutput, 0);
   }
 
   /**

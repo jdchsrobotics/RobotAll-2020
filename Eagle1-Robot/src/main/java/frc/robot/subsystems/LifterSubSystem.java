@@ -10,3 +10,9 @@ Commands:
 
 Total of 5 buttons
 */
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+
+
+// ACTION _ FIx after we configure the Talon
+// TalonSRX mytalontest = new TalonSRX(0);
