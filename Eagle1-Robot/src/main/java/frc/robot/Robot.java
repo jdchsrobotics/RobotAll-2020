@@ -21,8 +21,10 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
  */
 public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
-
   private RobotContainer m_robotContainer;
+
+// ACTION _ FIx after we configure the Talon
+  TalonSRX mytalontest = new TalonSRX(0);
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -33,6 +35,9 @@ public class Robot extends TimedRobot {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
+    
+    // ACTION - fix after the talons are configured
+    mytalontest.set(ControlMode.PercentOutput, 0);
   }
 
   /**
