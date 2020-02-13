@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj2.command.RunCommand;
 // Add when COMMAND file .java is fixed import frc.robot.commands.Teleop_Drive;
 
 import frc.robot.subsystems.DriveSubSystem;
+import frc.robot.subsystems.ColorWheelSubSystem;
 // import frc.robot.Constants.eagle_DriveConstants;
 import frc.robot.Constants.OI_Constants;
 
@@ -31,7 +32,10 @@ public class RobotContainer {
   private final DriveSubSystem m_robotDrive = new DriveSubSystem();
   // define these subsystems when created in code: 
   // Climber
-  // Color Wheel
+ 
+  // Color Wheel  
+   private final ColorWheelSubSystem m_colorwheel = new ColorWheelSubSystem();
+
   // Ball Management (shooting and/or pickup)
 
   // Define the joystick for driver
