@@ -57,5 +57,23 @@ public final class Constants {
         public static final double AutoREBDriveSpeed = -0.5;
         public static final double AutoREBDriveRotation = -0.5;
       }
+      
+    public static final class ColorConstants {
 
+        public static final double Blue1 = 0.143;
+        public static final double Blue2 = 0.427;
+        public static final double Blue3 = 0.429;
+
+        public static final double Green1 = 0.197;
+        public static final double Green2 = 0.561;
+        public static final double Green3 = 0.240;
+
+        public static final double Red1 = 0.561;
+        public static final double Red2 = 0.232;
+        public static final double Red3 = 0.114;
+
+        public static final double Yellow1 = 0.361;
+        public static final double Yellow2 = 0.524;
+        public static final double Yellow3 = 0.113;
+    }
 }
