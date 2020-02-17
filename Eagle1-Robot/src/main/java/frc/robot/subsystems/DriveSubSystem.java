@@ -8,6 +8,7 @@
 package frc.robot.subsystems;
 
 import frc.robot.Constants.eagle_DriveConstants;
+import frc.robot.Constants.EncoderConstants;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
@@ -65,16 +66,20 @@ private final DifferentialDrive m_robotDrive = new DifferentialDrive(m_left, m_r
  
   // The left-side drive encoder
   private final CANEncoder m_leftEncoder =
-      new CANEncoder(DriveConstants.kLeftEncoderPorts[0], DriveConstants.kLeftEncoderPorts[1],
-                  DriveConstants.kLeftEncoderReversed);
+      new CANEncoder(m_leftMotor);
+
+      //(EncoderConstants.LeftEncoderID, EncoderConstants.LeftSlaveEncoderID,
+      //            EncoderConstants.LeftEncoderReverseID);
 
   // The right-side drive encoder
   private final CANEncoder m_rightEncoder =
-      new CANEncoder(DriveConstants.kRightEncoderPorts[0], DriveConstants.kRightEncoderPorts[1],
-                  DriveConstants.kRightEncoderReversed);
+      new CANEncoder (m_rightMotor);
+      //(EncoderConstants.RightEncoderID, EncoderConstants.RightSlaveEncoderID,
+      //            DriveConstants.kRightEncoderReversed);
 
  //   Creates a new DriveSubsystem.
-   
+// RESEARCH: SparkMax equivalent
+  /* 
   public DriveSubsystem() {
     // Sets the distance per pulse for the encoders
     m_leftEncoder.setDistancePerPulse(DriveConstants.kEncoderDistancePerPulse);
@@ -85,7 +90,7 @@ private final DifferentialDrive m_robotDrive = new DifferentialDrive(m_left, m_r
      m_robotDrive.arcadeDrive(xSpeed, zRotation);
 
   }
-
+*/
 
 
   /**

@@ -28,6 +28,29 @@ public final class Constants {
         public static final int rightSlaveMotorCanID = 3;
 }
 
+    public static final class EncoderConstants {
+
+        public static final int LeftEncoderID = 1;
+        public static final int LeftSlaveEncoderID = 4;
+        public static final int LeftEncoderReverseID = 0;
+        // RESEARCH: value of reverseID either 0 or 1
+        public static final int RightEncoderID = 2;
+        public static final int RightSlaveEncoderID = 3;
+        public static final int RightEncoderReverseID = 1;
+        // RESEARCH: value of reverseID either 0 or 1
+        
+
+        public static final double kP = 5e-5; 
+        public static final double kI = 1e-6;
+        public static final double kD = 0; 
+        public static final double kIz = 0; 
+        public static final double kFF = 0.000156; 
+        public static final double kMaxOutput = 1; 
+        public static final double kMinOutput = -1;
+        public static final double maxRPM = 5700;
+
+    }
+
     // Input/OI Type devices
     public static final class OI_Constants {
         // Joystick - port 1

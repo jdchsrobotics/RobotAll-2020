@@ -38,13 +38,15 @@ public class DefaultAuto extends SequentialCommandGroup {
     public DefaultAuto(DriveSubSystem drive) {
       addCommands(
           // Drive forward the specified distance
+          
           new DriveForward(AutoConstants.AutoDriveDistanceInches, AutoConstants.AutoDriveSpeed,
                             drive),
-
+    
                             @Override
                             public void execute() {
                               m_drive.arcadeDrive(AutoConstants.AutoDriveSpeed, AutoConstants.AutoDriveRotation);
                             }
+
 
                              @Override
                               public final void end (boolean interrupted) {
@@ -53,7 +55,8 @@ public class DefaultAuto extends SequentialCommandGroup {
 
                              @Override
                               public boolean isFinished() {
-                               return false;
+                               return true;
+                               //return false;
                               }
     
 
