@@ -28,7 +28,7 @@ public class BallManagementCmds extends CommandBase {
 
     @Override
     public boolean isFinished() {
-     return true;
+     return false;
     }
-   
+  
 }

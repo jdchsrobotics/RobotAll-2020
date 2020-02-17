@@ -56,6 +56,7 @@ public class ColorWheelCmds extends CommandBase {
      public final void execute () {
 
      }
+     
 
      @Override
      public final void end (boolean interrupted) {
@@ -64,9 +65,9 @@ public class ColorWheelCmds extends CommandBase {
 
      @Override
      public boolean isFinished() {
-      return true;
+      return false;
      }
-    
+  
 
 
 

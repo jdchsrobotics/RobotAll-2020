@@ -53,7 +53,7 @@ public class DefaultAuto extends SequentialCommandGroup {
 
                              @Override
                               public boolean isFinished() {
-                               return true;
+                               return false;
                               }
     
 

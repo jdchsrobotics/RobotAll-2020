@@ -13,7 +13,7 @@ import frc.robot.subsystems.LifterSubSystem;
 
 public class LifterCmds extends CommandBase {
 
-    
+
     @Override
     public final void initialize () {
 
@@ -23,6 +23,7 @@ public class LifterCmds extends CommandBase {
     public final void execute () {
 
     }
+    
 
     @Override
     public final void end (boolean interrupted) {
@@ -31,7 +32,7 @@ public class LifterCmds extends CommandBase {
 
     @Override
     public boolean isFinished() {
-     return true;
+     return false;
     }
-   
+
 }
