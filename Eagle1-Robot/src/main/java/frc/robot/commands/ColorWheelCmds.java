@@ -52,4 +52,22 @@ public class ColorWheelCmds extends CommandBase {
 
     }
 
+     @Override
+     public final void execute () {
+
+     }
+
+     @Override
+     public final void end (boolean interrupted) {
+       
+     }
+
+     @Override
+     public boolean isFinished() {
+      return true;
+     }
+    
+
+
+
 }
