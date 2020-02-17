@@ -38,8 +38,8 @@ public class DriveSubSystem extends SubsystemBase {
 // 1,4   tight2,3
 
 // Tie Front and Back Motors together on each side
-private final SpeedControllerGroup m_left  = new SpeedControllerGroup(m_leftMotor, m_leftMotorSlave);
-private final SpeedControllerGroup m_right = new SpeedControllerGroup(m_rightMotor, m_rightMotorSlave);
+  private final SpeedControllerGroup m_left  = new SpeedControllerGroup(m_leftMotor, m_leftMotorSlave);
+  private final SpeedControllerGroup m_right = new SpeedControllerGroup(m_rightMotor, m_rightMotorSlave);
 
 // NOTE Above could be coded as :::  
 /*****
