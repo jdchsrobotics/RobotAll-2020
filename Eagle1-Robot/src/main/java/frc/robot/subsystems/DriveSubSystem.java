@@ -62,15 +62,15 @@ private final DifferentialDrive m_robotDrive = new DifferentialDrive(m_left, m_r
 // m_left_drive_encoder = m_left.getAverageEncoderDistance();
 // m_right_drive_encoder = m_right.getAverageEncoderDistance();
 
-/***** 
+ 
   // The left-side drive encoder
-  private final Encoder m_leftEncoder =
-      new Encoder(DriveConstants.kLeftEncoderPorts[0], DriveConstants.kLeftEncoderPorts[1],
+  private final CANEncoder m_leftEncoder =
+      new CANEncoder(DriveConstants.kLeftEncoderPorts[0], DriveConstants.kLeftEncoderPorts[1],
                   DriveConstants.kLeftEncoderReversed);
 
   // The right-side drive encoder
-  private final Encoder m_rightEncoder =
-      new Encoder(DriveConstants.kRightEncoderPorts[0], DriveConstants.kRightEncoderPorts[1],
+  private final CANEncoder m_rightEncoder =
+      new CANEncoder(DriveConstants.kRightEncoderPorts[0], DriveConstants.kRightEncoderPorts[1],
                   DriveConstants.kRightEncoderReversed);
 
  //   Creates a new DriveSubsystem.
@@ -86,7 +86,7 @@ private final DifferentialDrive m_robotDrive = new DifferentialDrive(m_left, m_r
 
   }
 
-*************/
+
 
   /**
    * Drives the robot using arcade controls.
