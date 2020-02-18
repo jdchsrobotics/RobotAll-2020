@@ -70,6 +70,11 @@ private final DifferentialDrive m_robotDrive = new DifferentialDrive(m_left, m_r
   // Uses Defaults of the 'motors' encorder connected to sparkmax
   private final CANEncoder m_leftdriveEncoder =
       new CANEncoder(m_leftMotor);
+// ALTERNATE  :     m_encoder = m_motor.getEncoder(EncoderType.kQuadrature, 4096);
+// From : https://github.com/REVrobotics/SPARK-MAX-Examples/blob/master/Java/Encoder%20Feedback%20Device/src/main/java/frc/robot/Robot.java
+
+// Reset values - we probably don't want this
+// m_motor.restoreFactoryDefaults(); (but we need to research)
 
   // The right-side drive encoder
   // Uses Defaults of the 'motors' encorder connected to sparkmax
@@ -79,18 +84,13 @@ private final DifferentialDrive m_robotDrive = new DifferentialDrive(m_left, m_r
  //   Creates a new DriveSubsystem.
 // RESEARCH: SparkMax equivalent
   /* 
-  public DriveSubsystem() {
+
     // Sets the distance per pulse for the encoders
     m_leftEncoder.setDistancePerPulse(DriveConstants.kEncoderDistancePerPulse);
     m_rightEncoder.setDistancePerPulse(DriveConstants.kEncoderDistancePerPulse);
   }
 
-  public DriveSubSystem() {
-     m_robotDrive.arcadeDrive(xSpeed, zRotation);
-
-  }
 */
-
 
   /**
    * Drives the robot using arcade controls.
@@ -109,15 +109,21 @@ private final DifferentialDrive m_robotDrive = new DifferentialDrive(m_left, m_r
     }
 
     m_robotDrive.arcadeDrive(fwd, rot);
-    
+    SmartDashboard.putNumber("Sparmax Left Speed Get", m_leftMotor.get());
+    SmartDashboard.putNumber("Sparmax Right Speed Get", m_rightMotor.get());
+
     /**
      * Encoder position is read from a CANEncoder object by calling the
      * GetPosition() method.
      * 
      * GetPosition() returns the position of the encoder in units of revolutions
      */
-    SmartDashboard.putNumber("Encoder Position", m_leftdriveEncoder.getPosition());
-    SmartDashboard.putNumber("Encoder Position", m_rightdriveEncoder.getPosition());
+    SmartDashboard.putNumber("Encoder Left Position", m_leftdriveEncoder.getPosition());
+    SmartDashboard.putNumber("Encoder Right Position", m_rightdriveEncoder.getPosition());
+
+    SmartDashboard.putNumber("Encoder counts per Rev", m_leftdriveEncoder.getCountsPerRevolution());
+    SmartDashboard.putNumber("Encoder counts per REv", m_rightdriveEncoder.getCountsPerRevolution());
+
 
     /**
      * Encoder velocity is read from a CANEncoder object by calling the
@@ -125,9 +131,11 @@ private final DifferentialDrive m_robotDrive = new DifferentialDrive(m_left, m_r
      * 
      * GetVelocity() returns the velocity of the encoder in units of RPM
      */
-
-    SmartDashboard.putNumber("Encoder Velocity", m_leftdriveEncoder.getVelocity());
-    SmartDashboard.putNumber("Encoder Velocity", m_leftdriveEncoder.getVelocity());
+   
+    SmartDashboard.putNumber("Encoder Left Velocity", m_leftdriveEncoder.getVelocity());
+    SmartDashboard.putNumber("Encoder Right Velocity", m_leftdriveEncoder.getVelocity());
+    SmartDashboard.putNumber("Encoder Left Vel Con Factor", m_leftdriveEncoder.getVelocityConversionFactor());
+    SmartDashboard.putNumber("Encoder Right Vel Con Factor", m_leftdriveEncoder.getVelocityConversionFactor());
 
   }
 
@@ -138,6 +146,7 @@ private final DifferentialDrive m_robotDrive = new DifferentialDrive(m_left, m_r
    * Resets the drive encoders to currently read a position of 0.
    
   public void resetEncoders() {
+    // I THINK THIS IS "setPosition(double xx)" in revrobotsi - same reference HTTP as above
     m_leftEncoder.reset();
     m_rightEncoder.reset();
   }
