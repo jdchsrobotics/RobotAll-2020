@@ -31,6 +31,7 @@ public class RobotContainer {
  
   // The robot's subsystems and commands are defined here...
   private final DriveSubSystem m_robotDrive = new DriveSubSystem();
+
   // define these subsystems when created in code: 
   // Climber
  
@@ -54,7 +55,8 @@ public class RobotContainer {
     // Configure the button bindings
     configureButtonBindings();
 
-    m_colorwheel.periodic();
+  
+
         
 
 // FIX -> needs the archade drive exposed or synctax fixed

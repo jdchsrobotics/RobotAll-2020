@@ -108,7 +108,5 @@ public class ColorWheelSubSystem extends SubsystemBase {
      * Run the color match algorithm on our detected color
      */
     
-
-    
     
 }

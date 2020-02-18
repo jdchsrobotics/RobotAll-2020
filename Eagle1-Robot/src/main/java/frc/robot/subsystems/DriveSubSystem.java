@@ -109,6 +109,7 @@ private final DifferentialDrive m_robotDrive = new DifferentialDrive(m_left, m_r
     }
     SmartDashboard.putNumber("Sparmax Left Speed Get", m_leftMotor.get());
     SmartDashboard.putNumber("Sparmax Right Speed Get", m_rightMotor.get());
+    
     m_robotDrive.arcadeDrive(fwd, rot);
 
 
