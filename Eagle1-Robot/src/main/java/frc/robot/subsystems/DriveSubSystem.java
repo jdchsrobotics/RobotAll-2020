@@ -11,6 +11,8 @@ import frc.robot.Constants.eagle_DriveConstants;
 import frc.robot.Constants.EncoderConstants;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 // import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -32,9 +34,9 @@ public class DriveSubSystem extends SubsystemBase {
      */
 
  // LEft Motor 1/4, right motor 2/3 
-  private final CANSparkMax m_leftMotor = new CANSparkMax(eagle_DriveConstants.leftMotorCanID, MotorType.kBrushless);
-  private final CANSparkMax m_leftMotorSlave = new CANSparkMax(eagle_DriveConstants.leftSlaveMotorCanID, MotorType.kBrushless);
-  private final CANSparkMax m_rightMotor = new CANSparkMax(eagle_DriveConstants.rightMotorCanID, MotorType.kBrushless);
+  private final CANSparkMax m_leftMotor       = new CANSparkMax(eagle_DriveConstants.leftMotorCanID, MotorType.kBrushless);
+  private final CANSparkMax m_leftMotorSlave  = new CANSparkMax(eagle_DriveConstants.leftSlaveMotorCanID, MotorType.kBrushless);
+  private final CANSparkMax m_rightMotor      = new CANSparkMax(eagle_DriveConstants.rightMotorCanID, MotorType.kBrushless);
   private final CANSparkMax m_rightMotorSlave = new CANSparkMax(eagle_DriveConstants.rightSlaveMotorCanID, MotorType.kBrushless);
 // 1,4   tight2,3
 
@@ -65,17 +67,14 @@ private final DifferentialDrive m_robotDrive = new DifferentialDrive(m_left, m_r
 
  
   // The left-side drive encoder
-  private final CANEncoder m_leftEncoder =
+  // Uses Defaults of the 'motors' encorder connected to sparkmax
+  private final CANEncoder m_leftdriveEncoder =
       new CANEncoder(m_leftMotor);
 
-      //(EncoderConstants.LeftEncoderID, EncoderConstants.LeftSlaveEncoderID,
-      //            EncoderConstants.LeftEncoderReverseID);
-
   // The right-side drive encoder
-  private final CANEncoder m_rightEncoder =
+  // Uses Defaults of the 'motors' encorder connected to sparkmax
+  private final CANEncoder m_rightdriveEncoder =
       new CANEncoder (m_rightMotor);
-      //(EncoderConstants.RightEncoderID, EncoderConstants.RightSlaveEncoderID,
-      //            DriveConstants.kRightEncoderReversed);
 
  //   Creates a new DriveSubsystem.
 // RESEARCH: SparkMax equivalent
@@ -110,8 +109,27 @@ private final DifferentialDrive m_robotDrive = new DifferentialDrive(m_left, m_r
     }
 
     m_robotDrive.arcadeDrive(fwd, rot);
-  }
+    
+    /**
+     * Encoder position is read from a CANEncoder object by calling the
+     * GetPosition() method.
+     * 
+     * GetPosition() returns the position of the encoder in units of revolutions
+     */
+    SmartDashboard.putNumber("Encoder Position", m_leftdriveEncoder.getPosition());
+    SmartDashboard.putNumber("Encoder Position", m_rightdriveEncoder.getPosition());
 
+    /**
+     * Encoder velocity is read from a CANEncoder object by calling the
+     * GetVelocity() method.
+     * 
+     * GetVelocity() returns the velocity of the encoder in units of RPM
+     */
+
+    SmartDashboard.putNumber("Encoder Velocity", m_leftdriveEncoder.getVelocity());
+    SmartDashboard.putNumber("Encoder Velocity", m_leftdriveEncoder.getVelocity());
+
+  }
 
 // Once Encoders are used need something like this
 /**
@@ -142,7 +160,6 @@ private final DifferentialDrive m_robotDrive = new DifferentialDrive(m_left, m_r
     return m_leftEncoder;
   }
 
-  
    * Gets the right drive encoder.
    *
    * @return the right drive encoder
