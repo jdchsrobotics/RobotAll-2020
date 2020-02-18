@@ -9,7 +9,7 @@ package frc.robot.subsystems;
 
 import frc.robot.Constants.eagle_DriveConstants;
 import frc.robot.Constants.EncoderConstants;
-
+import frc.robot.commands.Default_Drive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -107,10 +107,10 @@ private final DifferentialDrive m_robotDrive = new DifferentialDrive(m_left, m_r
     if(rot >= -0.1 && rot <= 0.1){
       rot = 0;
     }
-
-    m_robotDrive.arcadeDrive(fwd, rot);
     SmartDashboard.putNumber("Sparmax Left Speed Get", m_leftMotor.get());
     SmartDashboard.putNumber("Sparmax Right Speed Get", m_rightMotor.get());
+    m_robotDrive.arcadeDrive(fwd, rot);
+
 
     /**
      * Encoder position is read from a CANEncoder object by calling the
@@ -118,12 +118,7 @@ private final DifferentialDrive m_robotDrive = new DifferentialDrive(m_left, m_r
      * 
      * GetPosition() returns the position of the encoder in units of revolutions
      */
-    SmartDashboard.putNumber("Encoder Left Position", m_leftdriveEncoder.getPosition());
-    SmartDashboard.putNumber("Encoder Right Position", m_rightdriveEncoder.getPosition());
-
-    SmartDashboard.putNumber("Encoder counts per Rev", m_leftdriveEncoder.getCountsPerRevolution());
-    SmartDashboard.putNumber("Encoder counts per REv", m_rightdriveEncoder.getCountsPerRevolution());
-
+ 
 
     /**
      * Encoder velocity is read from a CANEncoder object by calling the
@@ -132,10 +127,6 @@ private final DifferentialDrive m_robotDrive = new DifferentialDrive(m_left, m_r
      * GetVelocity() returns the velocity of the encoder in units of RPM
      */
    
-    SmartDashboard.putNumber("Encoder Left Velocity", m_leftdriveEncoder.getVelocity());
-    SmartDashboard.putNumber("Encoder Right Velocity", m_leftdriveEncoder.getVelocity());
-    SmartDashboard.putNumber("Encoder Left Vel Con Factor", m_leftdriveEncoder.getVelocityConversionFactor());
-    SmartDashboard.putNumber("Encoder Right Vel Con Factor", m_leftdriveEncoder.getVelocityConversionFactor());
 
   }
 
@@ -182,6 +173,17 @@ private final DifferentialDrive m_robotDrive = new DifferentialDrive(m_left, m_r
 
   @Override
   public void periodic() {
+    SmartDashboard.putNumber("Encoder Left Position", m_leftdriveEncoder.getPosition());
+    SmartDashboard.putNumber("Encoder Right Position", m_rightdriveEncoder.getPosition());
+
+    SmartDashboard.putNumber("Encoder counts per Rev", m_leftdriveEncoder.getCountsPerRevolution());
+    SmartDashboard.putNumber("Encoder counts per REv", m_rightdriveEncoder.getCountsPerRevolution());
+
+    SmartDashboard.putNumber("Encoder Left Velocity", m_leftdriveEncoder.getVelocity());
+    SmartDashboard.putNumber("Encoder Right Velocity", m_leftdriveEncoder.getVelocity());
+    SmartDashboard.putNumber("Encoder Left Vel Con Factor", m_leftdriveEncoder.getVelocityConversionFactor());
+    SmartDashboard.putNumber("Encoder Right Vel Con Factor", m_leftdriveEncoder.getVelocityConversionFactor());
+
     // This method will be called once per scheduler run
   }
 }

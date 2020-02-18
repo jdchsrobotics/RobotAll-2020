@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj2.command.RunCommand;
 // Add when COMMAND file .java is fixed import frc.robot.commands.Teleop_Drive;
 
 import frc.robot.subsystems.DriveSubSystem;
+import frc.robot.commands.*;
 import frc.robot.subsystems.ColorWheelSubSystem;
 // import frc.robot.Constants.eagle_DriveConstants;
 import frc.robot.Constants.OI_Constants;
@@ -52,6 +53,9 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
+
+    m_colorwheel.periodic();
+        
 
 // FIX -> needs the archade drive exposed or synctax fixed
     m_robotDrive.setDefaultCommand(
