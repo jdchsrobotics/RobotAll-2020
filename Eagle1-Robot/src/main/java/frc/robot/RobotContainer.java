@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj2.command.RunCommand;
 // Add when COMMAND file .java is fixed import frc.robot.commands.Teleop_Drive;
 
 import frc.robot.subsystems.DriveSubSystem;
-import frc.robot.commands.*;
+import frc.robot.commands.ColorWheelCmds;
 import frc.robot.subsystems.ColorWheelSubSystem;
 // import frc.robot.Constants.eagle_DriveConstants;
 import frc.robot.Constants.OI_Constants;
@@ -32,12 +32,15 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final DriveSubSystem m_robotDrive = new DriveSubSystem();
 
+  // Color Wheel  
+  private final ColorWheelSubSystem m_colorwheel = new ColorWheelSubSystem();
+  private final ColorWheelCmds  m_colorwheelCmds = new ColorWheelCmds(m_colorwheel);
+  
+  // Ball Management (shooting and/or pickup)
+
   // define these subsystems when created in code: 
   // Climber
  
-  // Color Wheel  
-   private final ColorWheelSubSystem m_colorwheel = new ColorWheelSubSystem();
-   private final ColorWheelCmds  m_colorwheelCmds = new ColorWheelCmds(); // Ball Management (shooting and/or pickup)
 
   // Define the joystick for driver
   private final Joystick m_stick = new Joystick(OI_Constants.Joystick_1_portID);
@@ -53,21 +56,21 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
-
   
-m_colorwheelCmds.execute();
-        
+  
+  // m_colorwheelCmds.execute();
+   m_colorwheelCmds.execute();
 
 // FIX -> needs the archade drive exposed or synctax fixed
-    m_robotDrive.setDefaultCommand(
+    m_robotDrive.setDefaultCommand (   
          new RunCommand(() -> m_robotDrive.arcadeDrive (
                                 (-1 * m_stick.getY())
                                 , m_stick.getX()  ),
                 m_robotDrive
          )
     );
-  }
-
+  
+}
   /**
    * Use this method to define your button->command mappings.  Buttons can be created by
    * instantiating a {@link GenericHID} or one of its subclasses ({@link
@@ -84,12 +87,10 @@ m_colorwheelCmds.execute();
    * @return the command to run in autonomous
    */
 
-
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
     return (null);
    // return m_autoCommand;
   }
- 
   
 }

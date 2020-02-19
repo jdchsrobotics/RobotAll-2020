@@ -20,6 +20,9 @@ import com.revrobotics.ColorSensorV3;
 import com.revrobotics.ColorMatchResult;
 import com.revrobotics.ColorMatch;
 import frc.robot.commands.ColorWheelCmds;
+
+import frc.robot.Constants.ColorConstants;
+
 import edu.wpi.first.wpilibj.I2C;
 
 import edu.wpi.first.wpilibj.util.Color;
@@ -58,10 +61,11 @@ public class ColorWheelSubSystem extends SubsystemBase {
    * Note: Any example colors should be calibrated as the user needs, these
    * are here as a basic example.
    */
-  private final Color kBlueTarget = ColorMatch.makeColor(0.143, 0.427, 0.429);
-  private final Color kGreenTarget = ColorMatch.makeColor(0.197, 0.561, 0.240);
-  private final Color kRedTarget = ColorMatch.makeColor(0.561, 0.232, 0.114);
-  private final Color kYellowTarget = ColorMatch.makeColor(0.361, 0.524, 0.113);
+
+  private final Color kBlueTarget   = ColorMatch.makeColor(ColorConstants.Blue1, ColorConstants.Blue2, ColorConstants.Blue3);
+  private final Color kGreenTarget  = ColorMatch.makeColor(ColorConstants.Green1, ColorConstants.Green2, ColorConstants.Green3);
+  private final Color kRedTarget    = ColorMatch.makeColor(ColorConstants.Red1, ColorConstants.Red2, ColorConstants.Red3);
+  private final Color kYellowTarget = ColorMatch.makeColor(ColorConstants.Yellow1, ColorConstants.Yellow2, ColorConstants.Yellow3);
 
     /**
      * The method GetColor() returns a normalized color value from the sensor and can be
@@ -74,11 +78,14 @@ public class ColorWheelSubSystem extends SubsystemBase {
      * measurements and make it difficult to accurately determine its color.
      */
  
-    Color detectedColor = m_colorSensor.getColor();
- 
     @Override
     public void periodic() {
       // This method will be called once per scheduler run
+
+    /**
+     * Run the color match algorithm on our detected color
+     */
+      Color detectedColor = m_colorSensor.getColor();
       String colorString;
       ColorMatchResult match = m_colorMatcher.matchClosestColor(detectedColor);
       if (match.color == kBlueTarget) {
@@ -104,9 +111,7 @@ public class ColorWheelSubSystem extends SubsystemBase {
       SmartDashboard.putString("Detected Color", colorString);
  
     }
-    /**
-     * Run the color match algorithm on our detected color
-     */
+
     
     
 }
