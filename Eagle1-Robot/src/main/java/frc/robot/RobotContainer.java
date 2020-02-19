@@ -37,8 +37,7 @@ public class RobotContainer {
  
   // Color Wheel  
    private final ColorWheelSubSystem m_colorwheel = new ColorWheelSubSystem();
-
-  // Ball Management (shooting and/or pickup)
+   private final ColorWheelCmds  m_colorwheelCmds = new ColorWheelCmds(); // Ball Management (shooting and/or pickup)
 
   // Define the joystick for driver
   private final Joystick m_stick = new Joystick(OI_Constants.Joystick_1_portID);
@@ -56,7 +55,7 @@ public class RobotContainer {
     configureButtonBindings();
 
   
-
+m_colorwheelCmds.execute();
         
 
 // FIX -> needs the archade drive exposed or synctax fixed

@@ -38,10 +38,7 @@ public class ColorWheelCmds extends CommandBase {
   private final Color kYellowTarget = ColorMatch.makeColor(ColorConstants.Yellow1, ColorConstants.Yellow2, ColorConstants.Yellow3);
 
 
-  public final void xyz () {
-    // do something
-  }
-          
+ 
       // Called when the command is initially scheduled.
       @Override
       public final  void initialize() {
@@ -56,7 +53,7 @@ public class ColorWheelCmds extends CommandBase {
 
      @Override
      public final void execute () {
-
+       
      }
      
 
