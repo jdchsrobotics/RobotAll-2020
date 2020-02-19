@@ -98,7 +98,7 @@ public class ColorWheelSubSystem extends SubsystemBase {
         colorString = "Yellow";
       } else {
         colorString = "Unknown";    }
-  
+        SmartDashboard.putString("ColorString", colorString);
       /**
        * Open Smart Dashboard or Shuffleboard to see the color detected by the 
        * sensor.
