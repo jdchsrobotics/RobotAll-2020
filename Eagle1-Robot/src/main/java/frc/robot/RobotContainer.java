@@ -16,7 +16,7 @@ import edu.wpi.first.wpilibj2.command.RunCommand;
 // Add when COMMAND file .java is fixed import frc.robot.commands.Teleop_Drive;
 
 import frc.robot.subsystems.DriveSubSystem;
-import frc.robot.commands.ColorWheelCmds;
+import frc.robot.commands.ColorWheelGetColor;
 import frc.robot.subsystems.ColorWheelSubSystem;
 // import frc.robot.Constants.eagle_DriveConstants;
 import frc.robot.Constants.OI_Constants;
@@ -34,11 +34,12 @@ public class RobotContainer {
 
   // Color Wheel  
   private final ColorWheelSubSystem m_colorwheel = new ColorWheelSubSystem();
-  private final ColorWheelCmds  m_colorwheelCmds = new ColorWheelCmds(m_colorwheel);
+  // private final ColorWheelGetColor  m_colorwheelCmds = new ColorWheelGetColor(m_colorwheel);
   
-  // Ball Management (shooting and/or pickup)
+  private final Command  m_getcolor = new ColorWheelGetColor(m_colorwheel);
 
-  // define these subsystems when created in code: 
+  // Ball Management (shooting and/or pickup)
+ 
   // Climber
  
 
@@ -57,9 +58,7 @@ public class RobotContainer {
     // Configure the button bindings
     configureButtonBindings();
   
-  
-  // m_colorwheelCmds.execute();
-   m_colorwheelCmds.execute();
+   m_colorwheel.setDefaultCommand(m_getcolor);
 
 // FIX -> needs the archade drive exposed or synctax fixed
     m_robotDrive.setDefaultCommand (   
@@ -78,6 +77,18 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
+// Add xbox stuff here (ACTION JMG)
+//https://github.com/wpilibsuite/allwpilib/blob/master/wpilibjExamples/src/main/java/edu/wpi/first/wpilibj/examples/hatchbottraditional/RobotContainer.java
+
+  // Grab the hatch when the 'A' button is pressed.
+  //new JoystickButton(m_driverController, Button.kA.value)
+  //.whenPressed(new GrabHatch(m_hatchSubsystem));
+// Release the hatch when the 'B' button is pressed.
+//new JoystickButton(m_driverController, Button.kB.value)
+ // .whenPressed(new ReleaseHatch(m_hatchSubsystem));
+// While holding the shoulder button, drive at half speed
+//new JoystickButton(m_driverController, Button.kBumperRight.value)
+  //.whenHeld(new HalveDriveSpeed(m_robotDrive));
   }
 
 

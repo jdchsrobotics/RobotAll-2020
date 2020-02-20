@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.util.Color;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 // import java.util.function.DoubleSupplier;
 // import edu.wpi.first.wpilibj.templates.commandbased.subsystems.ExampleSubsystem;
@@ -17,12 +18,11 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.ColorWheelSubSystem;
 import frc.robot.Constants.ColorConstants;
 
-import com.revrobotics.ColorSensorV3;
 import com.revrobotics.ColorMatchResult;
 import com.revrobotics.ColorMatch;
 
 
-public class ColorWheelCmds extends CommandBase {
+public class ColorWheelGetColor extends CommandBase {
     /**
      * Change the I2C port below to match the connection of your color sensor
      */
@@ -30,17 +30,17 @@ public class ColorWheelCmds extends CommandBase {
     private final ColorWheelSubSystem m_ColorWheelSubSystem;
 
     private final ColorMatch   m_colorMatcher = new ColorMatch();
-  
+  /*
     private final Color kBlueTarget   = ColorMatch.makeColor(ColorConstants.Blue1, ColorConstants.Blue2, ColorConstants.Blue3);
     private final Color kGreenTarget  = ColorMatch.makeColor(ColorConstants.Green1, ColorConstants.Green2, ColorConstants.Green3);
     private final Color kRedTarget    = ColorMatch.makeColor(ColorConstants.Red1, ColorConstants.Red2, ColorConstants.Red3);
     private final Color kYellowTarget = ColorMatch.makeColor(ColorConstants.Yellow1, ColorConstants.Yellow2, ColorConstants.Yellow3);
+*/
 
-
-    public ColorWheelCmds (ColorWheelSubSystem subSystem) {
+    public ColorWheelGetColor (ColorWheelSubSystem subSystem) {
       m_ColorWheelSubSystem = subSystem;
   // CONTINUE FROM HERE ADD REQUIREMENT FROM THIS LINK
-  https://github.com/wpilibsuite/allwpilib/blob/master/wpilibjExamples/src/main/java/edu/wpi/first/wpilibj/templates/commandbased/commands/ExampleCommand.java
+  // https://github.com/wpilibsuite/allwpilib/blob/master/wpilibjExamples/src/main/java/edu/wpi/first/wpilibj/templates/commandbased/commands/ExampleCommand.java
        addRequirements(m_ColorWheelSubSystem);
 
     }
@@ -48,19 +48,15 @@ public class ColorWheelCmds extends CommandBase {
 
       // Called when the command is initially scheduled.
       @Override
-      public final void initialize() {
+      public final void  initialize() {
       // add intis here
- 
-      m_colorMatcher.addColorMatch(kBlueTarget);
-      m_colorMatcher.addColorMatch(kGreenTarget);
-      m_colorMatcher.addColorMatch(kRedTarget);
-      m_colorMatcher.addColorMatch(kYellowTarget);
 
     }
 
      @Override
-     public final void execute () {
-       
+     public final void execute() {
+
+        m_ColorWheelSubSystem.colorRead();
      }
      
 

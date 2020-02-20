@@ -19,13 +19,9 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.revrobotics.ColorSensorV3;
 import com.revrobotics.ColorMatchResult;
 import com.revrobotics.ColorMatch;
-import frc.robot.commands.ColorWheelCmds;
+// import frc.robot.commands.ColorWheelGetColor;
 
 import frc.robot.Constants.ColorConstants;
-
-import edu.wpi.first.wpilibj.I2C;
-
-import edu.wpi.first.wpilibj.util.Color;
 
 
 // *********************************************
@@ -77,15 +73,10 @@ public class ColorWheelSubSystem extends SubsystemBase {
      * an object is the more light from the surroundings will bleed into the 
      * measurements and make it difficult to accurately determine its color.
      */
- 
-    @Override
-    public void periodic() {
-      // This method will be called once per scheduler run
 
-    /**
-     * Run the color match algorithm on our detected color
-     */
+    public void colorRead () {
       Color detectedColor = m_colorSensor.getColor();
+   
       String colorString;
       ColorMatchResult match = m_colorMatcher.matchClosestColor(detectedColor);
       if (match.color == kBlueTarget) {
@@ -98,17 +89,27 @@ public class ColorWheelSubSystem extends SubsystemBase {
         colorString = "Yellow";
       } else {
         colorString = "Unknown";    }
+        SmartDashboard.putString("ColorString", match.color.toString());
         SmartDashboard.putString("ColorString", colorString);
+        SmartDashboard.putNumber("Red", detectedColor.red);
+        SmartDashboard.putNumber("Green", detectedColor.green);
+        SmartDashboard.putNumber("Blue", detectedColor.blue);
+        SmartDashboard.putNumber("Confidence", match.confidence);
+        SmartDashboard.putString("Detected Color", colorString);
+
+    } 
+    
+    
+    @Override
+    public void periodic() {
+      // This method will be called once per scheduler run
+
       /**
        * Open Smart Dashboard or Shuffleboard to see the color detected by the 
        * sensor.
        */
   
-      SmartDashboard.putNumber("Red", detectedColor.red);
-      SmartDashboard.putNumber("Green", detectedColor.green);
-      SmartDashboard.putNumber("Blue", detectedColor.blue);
-      SmartDashboard.putNumber("Confidence", match.confidence);
-      SmartDashboard.putString("Detected Color", colorString);
+
  
     }
 
