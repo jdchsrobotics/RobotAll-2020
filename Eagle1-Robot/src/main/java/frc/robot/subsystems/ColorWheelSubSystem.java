@@ -98,21 +98,15 @@ public class ColorWheelSubSystem extends SubsystemBase {
         SmartDashboard.putString("Detected Color", colorString);
 
     } 
-    
+    /*
     
     @Override
     public void periodic() {
       // This method will be called once per scheduler run
 
-      /**
-       * Open Smart Dashboard or Shuffleboard to see the color detected by the 
-       * sensor.
-       */
-  
-
  
     }
 
-    
+    */
     
 }

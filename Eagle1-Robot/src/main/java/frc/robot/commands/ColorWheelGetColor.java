@@ -29,14 +29,6 @@ public class ColorWheelGetColor extends CommandBase {
 
     private final ColorWheelSubSystem m_ColorWheelSubSystem;
 
-    private final ColorMatch   m_colorMatcher = new ColorMatch();
-  /*
-    private final Color kBlueTarget   = ColorMatch.makeColor(ColorConstants.Blue1, ColorConstants.Blue2, ColorConstants.Blue3);
-    private final Color kGreenTarget  = ColorMatch.makeColor(ColorConstants.Green1, ColorConstants.Green2, ColorConstants.Green3);
-    private final Color kRedTarget    = ColorMatch.makeColor(ColorConstants.Red1, ColorConstants.Red2, ColorConstants.Red3);
-    private final Color kYellowTarget = ColorMatch.makeColor(ColorConstants.Yellow1, ColorConstants.Yellow2, ColorConstants.Yellow3);
-*/
-
     public ColorWheelGetColor (ColorWheelSubSystem subSystem) {
       m_ColorWheelSubSystem = subSystem;
   // CONTINUE FROM HERE ADD REQUIREMENT FROM THIS LINK
