@@ -60,6 +60,13 @@ public class RobotContainer {
   
    m_colorwheel.setDefaultCommand(m_getcolor);
 
+   m_colorwheel.setDefaultCommand (   
+    new RunCommand(() -> m_colorwheel.colorRead()
+                        ,
+           m_colorwheel 
+                   )
+    );
+
 // FIX -> needs the archade drive exposed or synctax fixed
     m_robotDrive.setDefaultCommand (   
          new RunCommand(() -> m_robotDrive.arcadeDrive (
