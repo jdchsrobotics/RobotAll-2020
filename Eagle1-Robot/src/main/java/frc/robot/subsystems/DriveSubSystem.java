@@ -174,7 +174,7 @@ private final DifferentialDrive m_robotDrive = new DifferentialDrive(m_left, m_r
 
   @Override
   public void periodic() {
-    SmartDashboard.putNumber("Encoder Left Position", m_leftdriveEncoder.getPosition());
+ SmartDashboard.putNumber("Encoder Left Position", m_leftdriveEncoder.getPosition());
     SmartDashboard.putNumber("Encoder Right Position", m_rightdriveEncoder.getPosition());
 
     SmartDashboard.putNumber("Encoder counts per Rev", m_leftdriveEncoder.getCountsPerRevolution());

@@ -44,22 +44,23 @@ public class ColorWheelGetColor extends CommandBase {
       // add intis here
 
     }
-
+/*
      @Override
      public final void execute() {
 
-        m_ColorWheelSubSystem.colorRead();
+     //   m_ColorWheelSubSystem.colorRead();
      }
-     
-
+  */   
+/*
      @Override
      public final void end (boolean interrupted) {
-      // NO end task needed 
+       
      }
-
+*/
+/*
      @Override
      public boolean isFinished() {
       return false;
      }
-  
+  */
 }
