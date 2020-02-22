@@ -34,9 +34,8 @@ public class RobotContainer {
 
   // Color Wheel  
   private final ColorWheelSubSystem m_colorwheel = new ColorWheelSubSystem();
- // private final ColorWheelGetColor  m_colorwheelCmds = new ColorWheelGetColor(m_colorwheel);
-  
- private final Command  m_getcolor = new ColorWheelGetColor(m_colorwheel);
+  private final ColorWheelGetColor  m_colorwheelCmds = new ColorWheelGetColor(m_colorwheel);
+ // private final Command  m_getcolor = new ColorWheelGetColor(m_colorwheel);
 
   // Ball Management (shooting and/or pickup)
  
@@ -61,6 +60,7 @@ public class RobotContainer {
 // Fron botton of this link as the example
     // https://docs.wpilib.org/en/latest/docs/software/commandbased/subsystems.html
 /// m_colorwheel.setDefaultCommand(execute());
+ //m_colorwheel.setDefaultCommand(;
 /*
    m_colorwheel.setDefaultCommand (   
     new RunCommand(() -> m_colorwheel.colorRead()

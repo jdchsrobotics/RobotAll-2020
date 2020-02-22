@@ -75,36 +75,7 @@ public class ColorWheelSubSystem extends SubsystemBase {
      */
 
     public void colorRead () {
-       
-      Color detectedColor = m_colorSensor.getColor();
-     /* SmartDashboard.putString("ColorString", detectedColor.toString());
-      String colorString;
-      ColorMatchResult match = m_colorMatcher.matchClosestColor(detectedColor);
-      if (match.color == kBlueTarget) {
-        colorString = "Blue";
-      } else if (match.color == kRedTarget) {
-        colorString = "Red";
-      } else if (match.color == kGreenTarget) { 
-       colorString = "Green";
-      } else if (match.color == kYellowTarget) {
-        colorString = "Yellow";
-      } else {
-        colorString = "Unknown";    }
-        SmartDashboard.putString("ColorString", match.color.toString());
-        SmartDashboard.putString("ColorString", colorString);
-        SmartDashboard.putNumber("Red", detectedColor.red);
-        SmartDashboard.putNumber("Green", detectedColor.green);
-        SmartDashboard.putNumber("Blue", detectedColor.blue);
-        SmartDashboard.putNumber("Confidence", match.confidence);
-        SmartDashboard.putString("Detected Color", colorString);
-*/
-    } 
-    
-    /* 
-    @Override
-    public void periodic() {
-      // This method will be called once per scheduler run
-
+/*       
       Color detectedColor = m_colorSensor.getColor();
       SmartDashboard.putString("ColorString", detectedColor.toString());
       String colorString;
@@ -127,8 +98,45 @@ public class ColorWheelSubSystem extends SubsystemBase {
         SmartDashboard.putNumber("Confidence", match.confidence);
         SmartDashboard.putString("Detected Color", colorString);
 */
+    } 
+    
+     
+    @Override
+    public void periodic() {
+      // This method will be called once per scheduler run
+
+      Color detectedColor = m_colorSensor.getColor();
+      SmartDashboard.putString("ColorString", detectedColor.toString());
+    
    
+      String colorString;
+      ColorMatchResult match = m_colorMatcher.matchClosestColor(detectedColor);
+      SmartDashboard.putNumber("Confidence", match.confidence);
+      SmartDashboard.putString("Detected Color", match.toString());
     }
+  /*
+      if (match.color == kBlueTarget) {
+        colorString = "Blue";
+      } else if (match.color == kRedTarget) {
+        colorString = "Red";
+      } else if (match.color == kGreenTarget) { 
+       colorString = "Green";
+      } else if (match.color == kYellowTarget) {
+        colorString = "Yellow";
+      } else {
+        colorString = "Unknown";    }
+        SmartDashboard.putString("ColorString", match.color.toString());
+        SmartDashboard.putString("ColorString", colorString);
+        SmartDashboard.putNumber("Red", detectedColor.red);
+        SmartDashboard.putNumber("Green", detectedColor.green);
+        SmartDashboard.putNumber("Blue", detectedColor.blue);
+        SmartDashboard.putNumber("Confidence", match.confidence);
+        SmartDashboard.putString("Detected Color", colorString);
+      }
+      */
+      }
+   
+    
   
     
 
