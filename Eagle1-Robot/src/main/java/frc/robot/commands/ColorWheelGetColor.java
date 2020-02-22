@@ -42,7 +42,7 @@ public class ColorWheelGetColor extends CommandBase {
       @Override
       public final void  initialize() {
       // add intis here
-
+        m_ColorWheelSubSystem.colorInit();
     }
 
      @Override

@@ -74,47 +74,29 @@ public class ColorWheelSubSystem extends SubsystemBase {
      * measurements and make it difficult to accurately determine its color.
      */
 
-    public void colorRead () {
-/*       
-      Color detectedColor = m_colorSensor.getColor();
-      SmartDashboard.putString("ColorString", detectedColor.toString());
-      String colorString;
-      ColorMatchResult match = m_colorMatcher.matchClosestColor(detectedColor);
-      if (match.color == kBlueTarget) {
-        colorString = "Blue";
-      } else if (match.color == kRedTarget) {
-        colorString = "Red";
-      } else if (match.color == kGreenTarget) { 
-       colorString = "Green";
-      } else if (match.color == kYellowTarget) {
-        colorString = "Yellow";
-      } else {
-        colorString = "Unknown";    }
-        SmartDashboard.putString("ColorString", match.color.toString());
-        SmartDashboard.putString("ColorString", colorString);
-        SmartDashboard.putNumber("Red", detectedColor.red);
-        SmartDashboard.putNumber("Green", detectedColor.green);
-        SmartDashboard.putNumber("Blue", detectedColor.blue);
-        SmartDashboard.putNumber("Confidence", match.confidence);
-        SmartDashboard.putString("Detected Color", colorString);
-*/
+    public void colorInit () {
+
+      m_colorMatcher.addColorMatch(kBlueTarget);
+      m_colorMatcher.addColorMatch(kGreenTarget);
+      m_colorMatcher.addColorMatch(kRedTarget);
+      m_colorMatcher.addColorMatch(kYellowTarget);
+     
     } 
     
      
     @Override
     public void periodic() {
       // This method will be called once per scheduler run
-
+      
       Color detectedColor = m_colorSensor.getColor();
       SmartDashboard.putString("ColorString", detectedColor.toString());
-    
+ 
    
       String colorString;
       ColorMatchResult match = m_colorMatcher.matchClosestColor(detectedColor);
       SmartDashboard.putNumber("Confidence", match.confidence);
       SmartDashboard.putString("Detected Color", match.toString());
-    }
-  /*
+    
       if (match.color == kBlueTarget) {
         colorString = "Blue";
       } else if (match.color == kRedTarget) {
@@ -125,6 +107,9 @@ public class ColorWheelSubSystem extends SubsystemBase {
         colorString = "Yellow";
       } else {
         colorString = "Unknown";    }
+
+        
+        // colorString = "HardSet-Unknown";
         SmartDashboard.putString("ColorString", match.color.toString());
         SmartDashboard.putString("ColorString", colorString);
         SmartDashboard.putNumber("Red", detectedColor.red);
@@ -133,7 +118,7 @@ public class ColorWheelSubSystem extends SubsystemBase {
         SmartDashboard.putNumber("Confidence", match.confidence);
         SmartDashboard.putString("Detected Color", colorString);
       }
-      */
+    
       }
    
     

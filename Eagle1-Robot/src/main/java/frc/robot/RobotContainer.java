@@ -56,6 +56,7 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
+    m_colorwheel.colorInit();
 
 // Fron botton of this link as the example
     // https://docs.wpilib.org/en/latest/docs/software/commandbased/subsystems.html
