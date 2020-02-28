@@ -22,6 +22,20 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 // import com.ctre.phoenix.motorcontrol.ControlMode;
 // import com.ctre.phoenix.motorcontrol.DemandType;
 
+/* From CONSTANTS file - for reference.
+    // Lifter Contants
+    public static final class lifterConstants {
+        public static final int liftermotor = 6;  // Sparcmax
+        public static final int balancemotor = 21;  // Talon SRX
+        public static final float runUpMotor = (float) 0.5;
+        public static final float runDownMotor = (float) 0.5;
+ 
+    }
+
+*/ 
+
+
+
 // SparcMax Libraries
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
