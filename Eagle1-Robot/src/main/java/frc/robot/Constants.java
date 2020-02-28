@@ -27,6 +27,26 @@ public final class Constants {
         public static final int rightMotorCanID = 2; 
         public static final int rightSlaveMotorCanID = 3;
 }
+    // Lifter Contants
+    public static final class lifterConstants {
+        public static final int liftermotor = 6;  // Sparcmax
+        public static final int balancemotor = 21;  // Talon SRX
+        public static final float runUpMotor = (float) 0.5;
+        public static final float runDownMotor = (float) 0.5;
+ 
+    }
+
+    // Ball Mangement Constants
+    public static final class ballConstants {
+        public static final int ballupdownMotor = 22;  // Talon SPX VexPro (window motor)V
+        public static final int leftRollerMotor = 23;  // Talon SRX 
+        public static final int rightRollMotor = 24;   // Talon SRX
+        public static final float runDownTimeRollers = (float) 0.2; // Window Motor Down
+        public static final float runUpTimeRollers   = (float) 0.2; // Window Motor Up
+    }
+
+
+
 
     public static final class EncoderConstants {
 
