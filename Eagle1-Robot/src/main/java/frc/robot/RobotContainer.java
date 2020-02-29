@@ -10,8 +10,11 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.XboxController.Button;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.RunCommand;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+
 
 // Add when COMMAND file .java is fixed import frc.robot.commands.Teleop_Drive;
 
@@ -20,7 +23,7 @@ import frc.robot.commands.ColorWheelGetColor;
 import frc.robot.subsystems.ColorWheelSubSystem;
 // import frc.robot.Constants.eagle_DriveConstants;
 import frc.robot.Constants.OI_Constants;
-
+import frc.robot.Constants.ColorConstants;
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
  * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
@@ -46,6 +49,7 @@ public class RobotContainer {
   private final Joystick m_stick = new Joystick(OI_Constants.Joystick_1_portID);
 
 
+
   // FIx after commands are fixed (for autonomous)
   // ACTION NEEDED TO ADJUST:
   // private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
@@ -57,6 +61,7 @@ public class RobotContainer {
     // Configure the button bindings
     configureButtonBindings();
     m_colorwheel.colorInit();
+    
 
 // Fron botton of this link as the example
     // https://docs.wpilib.org/en/latest/docs/software/commandbased/subsystems.html
@@ -89,10 +94,14 @@ public class RobotContainer {
   private void configureButtonBindings() {
 // Add xbox stuff here (ACTION JMG)
 //https://github.com/wpilibsuite/allwpilib/blob/master/wpilibjExamples/src/main/java/edu/wpi/first/wpilibj/examples/hatchbottraditional/RobotContainer.java
+XboxController m_XboxController = new XboxController(OI_Constants.Xbox_Controller_portID);
+
 
   // Grab the hatch when the 'A' button is pressed.
-  //new JoystickButton(m_driverController, Button.kA.value)
-  //.whenPressed(new GrabHatch(m_hatchSubsystem));
+ new JoystickButton(m_XboxController , Button.kStickLeft.value)
+ .whenPressed(new ColorWheelGetColor(m_colorwheel));
+
+
 // Release the hatch when the 'B' button is pressed.
 //new JoystickButton(m_driverController, Button.kB.value)
  // .whenPressed(new ReleaseHatch(m_hatchSubsystem));

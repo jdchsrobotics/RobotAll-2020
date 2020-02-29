@@ -75,6 +75,7 @@ public final class Constants {
     public static final class OI_Constants {
         // Joystick - port 1
         public static final int Joystick_1_portID = 0;
+        public static final int Xbox_Controller_portID = 1;
 
     }
     public static final class Xbox_Constants {
@@ -88,6 +89,9 @@ public final class Constants {
 
         public static final int XboxStartButton = 7;
         public static final int XboxMenuButton = 8;
+
+        public static final int XboxLeftStickButton = 9;
+        public static final int XboxRightStickButton = 10;
 
 
         //Double check the values for buttons
