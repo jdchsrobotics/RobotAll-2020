@@ -9,7 +9,7 @@ package frc.robot.subsystems;
 
 import frc.robot.Constants.eagle_DriveConstants;
 import frc.robot.Constants.EncoderConstants;
-import frc.robot.commands.Default_Drive;
+// import frc.robot.commands.Default_Drive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -92,13 +92,21 @@ private final DifferentialDrive m_robotDrive = new DifferentialDrive(m_left, m_r
 
 */
 
+//  old drive subsystem call
+/* 
+m_robotDrive.joy_arcadeDrive (
+                                (-1 * m_stick.getY())
+                                , m_stick.getX()  )
+
+                                */
+
   /**
    * Drives the robot using arcade controls.
    *
    * @param fwd the commanded forward movement
    * @param rot the commanded rotation
    */
-  public void arcadeDrive(double fwd, double rot) {
+  public void joy_arcadeDrive(double fwd, double rot) {
 
     if(fwd >= -0.1 && fwd <= 0.1){
       fwd = 0;
@@ -172,6 +180,8 @@ private final DifferentialDrive m_robotDrive = new DifferentialDrive(m_left, m_r
  */
 
 
+
+ 
   @Override
   public void periodic() {
  SmartDashboard.putNumber("Encoder Left Position", m_leftdriveEncoder.getPosition());

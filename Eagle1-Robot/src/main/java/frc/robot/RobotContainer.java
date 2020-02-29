@@ -16,8 +16,11 @@ import edu.wpi.first.wpilibj2.command.RunCommand;
 // Add when COMMAND file .java is fixed import frc.robot.commands.Teleop_Drive;
 
 import frc.robot.subsystems.DriveSubSystem;
-import frc.robot.commands.ColorWheelGetColor;
+import frc.robot.commands.Default_Drive;
+
 import frc.robot.subsystems.ColorWheelSubSystem;
+import frc.robot.commands.ColorWheelGetColor;
+
 // import frc.robot.Constants.eagle_DriveConstants;
 import frc.robot.Constants.OI_Constants;
 
@@ -31,16 +34,14 @@ public class RobotContainer {
  
   // The robot's subsystems and commands are defined here...
   private final DriveSubSystem m_robotDrive = new DriveSubSystem();
-
+  private final Default_Drive  c_robotDriveCmds = new Default_Drive(m_robotDrive);
+  
   // Color Wheel  
   private final ColorWheelSubSystem m_colorwheel = new ColorWheelSubSystem();
-  private final ColorWheelGetColor  m_colorwheelCmds = new ColorWheelGetColor(m_colorwheel);
- // private final Command  m_getcolor = new ColorWheelGetColor(m_colorwheel);
+  private final ColorWheelGetColor  c_colorwheelCmds = new ColorWheelGetColor(m_colorwheel);
 
   // Ball Management (shooting and/or pickup)
- 
-  // Climber
- 
+  // Climber/LIfter stuff
 
   // Define the joystick for driver
   private final Joystick m_stick = new Joystick(OI_Constants.Joystick_1_portID);
@@ -61,23 +62,19 @@ public class RobotContainer {
 // Fron botton of this link as the example
     // https://docs.wpilib.org/en/latest/docs/software/commandbased/subsystems.html
 /// m_colorwheel.setDefaultCommand(execute());
- //m_colorwheel.setDefaultCommand(;
-/*
-   m_colorwheel.setDefaultCommand (   
-    new RunCommand(() -> m_colorwheel.colorRead()
-                        ,
-           m_colorwheel 
-                   )
-    );
-*/
+///m_colorwheel.setDefaultCommand(;
+
 // FIX -> needs the archade drive exposed or synctax fixed
-    m_robotDrive.setDefaultCommand (   
-         new RunCommand(() -> m_robotDrive.arcadeDrive (
+ /*   m_robotDrive.setDefaultCommand (   
+         new RunCommand(() -> m_robotDrive.joy_arcadeDrive (
                                 (-1 * m_stick.getY())
                                 , m_stick.getX()  ),
                 m_robotDrive
          )
     );
+    */
+    
+    
   
 }
   /**
