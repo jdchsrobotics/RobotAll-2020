@@ -45,6 +45,18 @@ public class DefaultAuto extends SequentialCommandGroup {
                             @Override
                             public void execute() {
                               m_drive.arcadeDrive(AutoConstants.AutoDriveSpeed, AutoConstants.AutoDriveRotation);
+                              m_drive.clearLine();
+                                //Robot moves forward for 3 feet
+                              m_drive.start(startA);
+                                //Robot moves to portal from position closest to portal
+                                
+                              m_drive.start(startB);
+                                //Robot moves to portal from middle positiion 
+                              m_drive.start(startC);
+                                //Robot moves to portal from position farthest from portal
+                            
+
+
                             }
 
 

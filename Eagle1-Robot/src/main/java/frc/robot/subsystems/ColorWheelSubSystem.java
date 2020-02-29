@@ -82,7 +82,21 @@ public class ColorWheelSubSystem extends SubsystemBase {
       m_colorMatcher.addColorMatch(kYellowTarget);
      
     } 
-    
+  
+    public void spin3times () {
+
+      /*
+      Spin 3 times
+
+        Read color
+        spin until required color
+        start loop:
+        spin for so that the color appears 6 times (3 rotations)
+          required color = required color + 1 
+          until required color = 6
+
+    */
+    }
      
     @Override
     public void periodic() {

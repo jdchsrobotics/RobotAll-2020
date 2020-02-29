@@ -13,7 +13,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-
+import frc.robot.Constants.ballConstants;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 // import com.ctre.phoenix.motorcontrol.NeutralMode;
 // import com.ctre.phoenix.motorcontrol.ControlMode;
@@ -31,13 +31,36 @@ public static final class ballConstants {
     
 public class BallManagementSubSystem extends SubsystemBase {
     // ACTION - check CAN BUS ID
-    TalonSRX m_ballrollerBR = new TalonSRX(21);
+    TalonSRX m_ballrollerL = new TalonSRX(ballConstants.leftRollerMotor);
+    TalonSRX m_ballrollerR = new TalonSRX(ballConstants.rightRollerMotor);
 
    // ADD PMW + TALON for Window Montor
-   TalonSRX m_ballupdownWM = new TalonSRX(22);
+   TalonSRX m_ballupdownWM = new TalonSRX(ballConstants.ballupdownMotor);
    // PMW Line here
 
+public void cableUp () {
+//lifts ball mechanism
+}
 
+public void cableDown () {
+//lowers ball mechanism
+}
+
+public void ButtonUp () {
+// Overrides cableUp
+}
+
+public void ButtonDown () {
+// Overrides cableUp
+}
+
+public void BallIn () {
+    
+}
+
+public void BallOut () {
+    
+}
     //  Add subsystem class info here
 
 }

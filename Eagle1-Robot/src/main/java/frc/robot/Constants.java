@@ -40,7 +40,7 @@ public final class Constants {
     public static final class ballConstants {
         public static final int ballupdownMotor = 22;  // Talon SPX VexPro (window motor)V
         public static final int leftRollerMotor = 23;  // Talon SRX 
-        public static final int rightRollMotor = 24;   // Talon SRX
+        public static final int rightRollerMotor = 24;   // Talon SRX
         public static final float runDownTimeRollers = (float) 0.2; // Window Motor Down
         public static final float runUpTimeRollers   = (float) 0.2; // Window Motor Up
     }

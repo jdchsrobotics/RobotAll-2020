@@ -15,6 +15,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants.lifterConstants;
 
 // Talon Libraries
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
@@ -46,9 +47,26 @@ import com.revrobotics.CANEncoder;
 public class LifterSubSystem extends SubsystemBase {
 
     // ACTION: Check CANBUS Id
- private final TalonSRX    m_leveler        = new TalonSRX(23);
- private final CANSparkMax m_lifter         = new CANSparkMax(99, MotorType.kBrushless);
+ private final TalonSRX    m_leveler        = new TalonSRX(lifterConstants.balancemotor);
+ private final CANSparkMax m_lifter         = new CANSparkMax(lifterConstants.liftermotor, MotorType.kBrushless);
 
     //  Add subsystem class info here
 
+public void lifterUp ()  {
+// Raise Bar (Right bumper)
+
+}
+public void lifterClimb ()  {
+// Lower Bar (Left bumper)
+}
+public void lifterLeft ()  {
+// Balance Left (Left Trigger)
+}
+public void lifterRight ()  {
+//  Balance Right (Right Trigger)
+}
+public void LifterLock () {
+//  Locks bar 
+// 
+}
 }
