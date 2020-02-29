@@ -22,9 +22,13 @@ public class ColorWheelCmdFindColor extends CommandBase {
      */
 
     private final ColorWheelSubSystem m_ColorWheelSubSystem;
+    private final String requiredColor;
+   //  requiredColor = "Blue";
 
-    public ColorWheelCmdFindColor (ColorWheelSubSystem subSystem) {
+    public ColorWheelCmdFindColor (ColorWheelSubSystem subSystem, String p_requiredColor) {
       m_ColorWheelSubSystem = subSystem;
+      requiredColor = p_requiredColor;
+      
   // CONTINUE FROM HERE ADD REQUIREMENT FROM THIS LINK
   // https://github.com/wpilibsuite/allwpilib/blob/master/wpilibjExamples/src/main/java/edu/wpi/first/wpilibj/templates/commandbased/commands/ExampleCommand.java
        addRequirements(m_ColorWheelSubSystem);
@@ -37,15 +41,12 @@ public class ColorWheelCmdFindColor extends CommandBase {
       public final void  initialize() {
       // add intis here
         m_ColorWheelSubSystem.colorInit();
-        m_ColorWheelSubSystem.FindColor("Blue");
-        
+        m_ColorWheelSubSystem.FindColor(requiredColor);
+
     }
 
      @Override
-     public final void execute() {
-
-     //   m_ColorWheelSubSystem.colorRead();
-         
+     public final void execute() {         
 
           
      }

@@ -19,8 +19,10 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 // Add when COMMAND file .java is fixed import frc.robot.commands.Teleop_Drive;
 
 import frc.robot.subsystems.DriveSubSystem;
+import frc.robot.commands.ColorWheelCmdFindColor;
 import frc.robot.commands.ColorWheelGetColor;
 import frc.robot.subsystems.ColorWheelSubSystem;
+
 // import frc.robot.Constants.eagle_DriveConstants;
 import frc.robot.Constants.OI_Constants;
 import frc.robot.Constants.ColorConstants;
@@ -97,9 +99,17 @@ public class RobotContainer {
 XboxController m_XboxController = new XboxController(OI_Constants.Xbox_Controller_portID);
 
 
-  // Grab the hatch when the 'A' button is pressed.
  new JoystickButton(m_XboxController , Button.kStickLeft.value)
  .whenPressed(new ColorWheelGetColor(m_colorwheel));
+
+  new JoystickButton(m_XboxController, Button.kA.value)
+ .whenPressed( new ColorWheelCmdFindColor(m_colorwheel, "Green"));
+ new JoystickButton(m_XboxController, Button.kB.value)
+ .whenPressed( new ColorWheelCmdFindColor(m_colorwheel, "Red"));
+ new JoystickButton(m_XboxController, Button.kX.value)
+ .whenPressed( new ColorWheelCmdFindColor(m_colorwheel, "Blue"));
+ new JoystickButton(m_XboxController, Button.kY.value)
+ .whenPressed( new ColorWheelCmdFindColor(m_colorwheel, "Yellow"));
 
 
 // Release the hatch when the 'B' button is pressed.

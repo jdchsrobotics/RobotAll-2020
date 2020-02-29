@@ -32,7 +32,7 @@ import frc.robot.Constants.ColorConstants;
 //
 //  ******************************************
 public class ColorWheelSubSystem extends SubsystemBase {
-
+  
   /**
    * Change the I2C port below to match the connection of your color sensor
    */
@@ -150,7 +150,7 @@ public class ColorWheelSubSystem extends SubsystemBase {
 
     
 
-    public void FindColor(String ReadColor) {
+    public void FindColor(String requiredColor) {
 
       /*
       RedColor read = Blue FindColor
@@ -158,18 +158,18 @@ public class ColorWheelSubSystem extends SubsystemBase {
       BlueColor read = Red FindColor
       YellowColor read= green FindColor
       */
-      String requiredColor;
+      String ReadColor;
       
-      if (ReadColor == "Red") {
-        requiredColor = "Blue";
-      } else if (ReadColor == "Green") {
-        requiredColor = "Yellow";
-      } else if (ReadColor == "Blue") {
-        requiredColor = "Red";
-      } else if (ReadColor == "Yellow") {
-        requiredColor = "Green";
+      if (requiredColor == "Red") {
+        ReadColor = "Blue";
+      } else if (requiredColor == "Green") {
+        ReadColor = "Yellow";
+      } else if (requiredColor == "Blue") {
+        ReadColor = "Red";
+      } else if (requiredColor == "Yellow") {
+        ReadColor = "Green";
       } else {
-        requiredColor = "Unkown";
+        ReadColor = "Unkown";
       }
        
    
@@ -178,7 +178,7 @@ public class ColorWheelSubSystem extends SubsystemBase {
       SmartDashboard.putString("ColorString", detectedColor.toString());
       colorString = "Unknown";
       
-    while (requiredColor != colorString) {
+    while (ReadColor != colorString) {
       ColorMatchResult match = m_colorMatcher.matchClosestColor(detectedColor);
         SmartDashboard.putNumber("Confidence", match.confidence);
         SmartDashboard.putString("Detected Color", match.toString());
@@ -194,7 +194,7 @@ public class ColorWheelSubSystem extends SubsystemBase {
         } else {
           colorString = "Unknown";    }
 
-        SmartDashboard.putString("requiredColor", requiredColor);
+        SmartDashboard.putString("requiredColor", ReadColor);
   
         SmartDashboard.putString("ColorString", match.color.toString());
         SmartDashboard.putString("ColorString", colorString);
@@ -206,14 +206,14 @@ public class ColorWheelSubSystem extends SubsystemBase {
          //setmotor output to 0.25
 
         }
-       //run motor 
+        
 
-// readcolor
+
 
       }
 
       
-      //readcolor 
+      
 
 
 
