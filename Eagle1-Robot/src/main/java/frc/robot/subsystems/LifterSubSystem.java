@@ -62,7 +62,7 @@ public class LifterSubSystem extends SubsystemBase {
 
     // ACTION: Check CANBUS Id
  private final TalonSRX    m_leveler        = new TalonSRX(23);
- private final CANSparkMax m_lifter         = new CANSparkMax(99, MotorType.kBrushless);
+ private final CANSparkMax m_lifter         = new CANSparkMax(6, MotorType.kBrushless);
 
     //  Add subsystem class info here
 
