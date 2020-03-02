@@ -13,6 +13,8 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.subsystems.DriveSubSystem;
 
+import frc.robot.Controls.ControlMap;
+
 /**
  * An example command that uses an example subsystem.
  */
@@ -44,8 +46,8 @@ public class Default_Drive extends CommandBase {
     // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_drive.joy_arcadeDrive(m_forward, m_rotation);
-
+    m_drive.joy_arcadeDrive((-1 * ControlMap.m_driver_stick.getY()), ControlMap.m_driver_stick.getX());
+   
   }
 
 

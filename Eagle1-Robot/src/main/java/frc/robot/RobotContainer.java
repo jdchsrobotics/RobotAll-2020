@@ -15,11 +15,18 @@ import edu.wpi.first.wpilibj2.command.RunCommand;
 
 // Add when COMMAND file .java is fixed import frc.robot.commands.Teleop_Drive;
 
+import frc.robot.Controls.ControlMap;
 import frc.robot.subsystems.DriveSubSystem;
 import frc.robot.commands.Default_Drive;
+// Add after Autocode is written
+// import frc.robot.commands.GoAuto.*;
 
 import frc.robot.subsystems.ColorWheelSubSystem;
 import frc.robot.commands.ColorWheelGetColor;
+import frc.robot.commands.GoAuto;
+
+import frc.robot.commands.BallManagementCmds.*;
+import frc.robot.commands.LifterCmds.*;
 
 // import frc.robot.Constants.eagle_DriveConstants;
 import frc.robot.Constants.OI_Constants;
@@ -34,8 +41,12 @@ public class RobotContainer {
  
   // The robot's subsystems and commands are defined here...
   private final DriveSubSystem m_robotDrive = new DriveSubSystem();
-  private final Default_Drive  c_robotDriveCmds = new Default_Drive(m_robotDrive);
-  
+ 
+  // Commandd for Drive Subsystem
+  // ACTION take out 0, 0 from calls
+  private final Default_Drive c_drive       = new Default_Drive(m_robotDrive, 0, 0);
+  private final GoAuto        c_goAutoCmd   = new GoAuto(m_robotDrive);
+
   // Color Wheel  
   private final ColorWheelSubSystem m_colorwheel = new ColorWheelSubSystem();
   private final ColorWheelGetColor  c_colorwheelCmds = new ColorWheelGetColor(m_colorwheel);
@@ -44,12 +55,7 @@ public class RobotContainer {
   // Climber/LIfter stuff
 
   // Define the joystick for driver
-  private final Joystick m_stick = new Joystick(OI_Constants.Joystick_1_portID);
-
-
-  // FIx after commands are fixed (for autonomous)
-  // ACTION NEEDED TO ADJUST:
-  // private final ExampleCommand m_autoCommand = new ExampleCommand(m_exampleSubsystem);
+ // private final Joystick m_stick = new Joystick(OI_Constants.Joystick_1_portID);
 
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
@@ -57,15 +63,23 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
+    // Configure default commands
+    configureDefaultCommands();
+    // ACTION - may not be needed once color wheel is in Periodic
+    // Start Periodic and/or Init+Execute
     m_colorwheel.colorInit();
+  }
 
-// Fron botton of this link as the example
-    // https://docs.wpilib.org/en/latest/docs/software/commandbased/subsystems.html
-/// m_colorwheel.setDefaultCommand(execute());
-///m_colorwheel.setDefaultCommand(;
+private void configureDefaultCommands() {
+   m_robotDrive.setDefaultCommand(c_drive);
 
-// FIX -> needs the archade drive exposed or synctax fixed
- /*   m_robotDrive.setDefaultCommand (   
+}
+
+// FIX -> needs the arcade drive exposed or synctax fixed
+// Old Default Command Drive -> bypassed commands and calls subsystem directly
+// Nice for quick testing but does not support autonomous
+
+/*   m_robotDrive.setDefaultCommand (   
          new RunCommand(() -> m_robotDrive.joy_arcadeDrive (
                                 (-1 * m_stick.getY())
                                 , m_stick.getX()  ),
@@ -73,10 +87,7 @@ public class RobotContainer {
          )
     );
     */
-    
-    
-  
-}
+
   /**
    * Use this method to define your button->command mappings.  Buttons can be created by
    * instantiating a {@link GenericHID} or one of its subclasses ({@link
@@ -96,6 +107,7 @@ public class RobotContainer {
 // While holding the shoulder button, drive at half speed
 //new JoystickButton(m_driverController, Button.kBumperRight.value)
   //.whenHeld(new HalveDriveSpeed(m_robotDrive));
+  
   }
 
 
@@ -107,8 +119,9 @@ public class RobotContainer {
 
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return (null);
-   // return m_autoCommand;
+    return (c_goAutoCmd);
+    // return(null);
+
   }
   
 }

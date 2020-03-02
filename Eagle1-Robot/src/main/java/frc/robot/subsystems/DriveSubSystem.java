@@ -26,19 +26,28 @@ import com.revrobotics.CANPIDController;
 import com.revrobotics.EncoderType;
 import com.revrobotics.ControlType;
 
+// iF you use ultrasonic sensor for drive sub-system 
+import edu.wpi.first.wpilibj.Ultrasonic;
+
 // Add Encoder 
 public class DriveSubSystem extends SubsystemBase {
 
     /**
-     * Creates a new ExampleSubsystem.
+     * Creates a new Drive Subsystem.
+     * Code REfactored using team 612 - thank you team 612 for some coding simplifications
+     * https://github.com/Team612/612-2020/blob/master/team612/src/main/java/frc/robot/subsystems/Drivetrain.java
      */
 
+  // Ultrasonic sensor for drive if used
+  // private Ultrasonic ultrasonic_drive = new Ultrasonic(Constants.ULTRASONIC_DRIVE[0], Constants.ULTRASONIC_DRIVE[1]);
+
+
+ // Create the drive based on SparcMax Controllers and Brushless motors in a 2x2 configuration
  // LEft Motor 1/4, right motor 2/3 
   private final CANSparkMax m_leftMotor       = new CANSparkMax(eagle_DriveConstants.leftMotorCanID, MotorType.kBrushless);
   private final CANSparkMax m_leftMotorSlave  = new CANSparkMax(eagle_DriveConstants.leftSlaveMotorCanID, MotorType.kBrushless);
   private final CANSparkMax m_rightMotor      = new CANSparkMax(eagle_DriveConstants.rightMotorCanID, MotorType.kBrushless);
   private final CANSparkMax m_rightMotorSlave = new CANSparkMax(eagle_DriveConstants.rightSlaveMotorCanID, MotorType.kBrushless);
-// 1,4   tight2,3
 
 // Tie Front and Back Motors together on each side
   private final SpeedControllerGroup m_left  = new SpeedControllerGroup(m_leftMotor, m_leftMotorSlave);
@@ -46,7 +55,6 @@ public class DriveSubSystem extends SubsystemBase {
 
 // NOTE Above could be coded as :::  
 /*****
- * 
  * private final SpeedControllerGroup m_left  = new SpeedControllerGroup(
  *    new CANSparkMax(eagle_DriveConstants.leftMotorCanID, MotorType.kBrushless)
  *   ,new CANSparkMax(eagle_DriveConstants.leftSlaveMotorCanID, MotorType.kBrushless)
@@ -55,7 +63,6 @@ public class DriveSubSystem extends SubsystemBase {
  *    new CANSparkMax(eagle_DriveConstants.rightMotorCanID, MotorType.kBrushless)
  *   ,new CANSparkMax(eagle_DriveConstants.rightSlaveMotorCanID, MotorType.kBrushless)
  *  );
- * 
  ******/
 
 private final DifferentialDrive m_robotDrive = new DifferentialDrive(m_left, m_right);
@@ -81,24 +88,19 @@ private final DifferentialDrive m_robotDrive = new DifferentialDrive(m_left, m_r
   private final CANEncoder m_rightdriveEncoder =
       new CANEncoder (m_rightMotor);
 
- //   Creates a new DriveSubsystem.
-// RESEARCH: SparkMax equivalent
-  /* 
-
-    // Sets the distance per pulse for the encoders
+  // RESEARCH: SparkMax equivalent
+  /*  Sets the distance per pulse for the encoders
     m_leftEncoder.setDistancePerPulse(DriveConstants.kEncoderDistancePerPulse);
     m_rightEncoder.setDistancePerPulse(DriveConstants.kEncoderDistancePerPulse);
   }
+  */
 
-*/
-
-//  old drive subsystem call
+//  old drive subsystem call great for testing but does not work with autonomous and bypasses standard command programming
 /* 
 m_robotDrive.joy_arcadeDrive (
                                 (-1 * m_stick.getY())
                                 , m_stick.getX()  )
-
-                                */
+*/
 
   /**
    * Drives the robot using arcade controls.
@@ -115,28 +117,29 @@ m_robotDrive.joy_arcadeDrive (
     if(rot >= -0.1 && rot <= 0.1){
       rot = 0;
     }
+    /* Alternate code to deal with "center position joystick" 
+    //  CLeaner syntax that if statememnts
+    x_axis = Math.abs(x_axis) < DEADZONE ? 0.0 : x_axis;
+    y_axis = Math.abs(y_axis) < DEADZONE ? 0.0 : y_axis;
+    */
+
     SmartDashboard.putNumber("Sparmax Left Speed Get", m_leftMotor.get());
     SmartDashboard.putNumber("Sparmax Right Speed Get", m_rightMotor.get());
     
     m_robotDrive.arcadeDrive(fwd, rot);
 
-
     /**
      * Encoder position is read from a CANEncoder object by calling the
      * GetPosition() method.
-     * 
      * GetPosition() returns the position of the encoder in units of revolutions
      */
- 
 
     /**
      * Encoder velocity is read from a CANEncoder object by calling the
      * GetVelocity() method.
-     * 
      * GetVelocity() returns the velocity of the encoder in units of RPM
      */
    
-
   }
 
 // Once Encoders are used need something like this
@@ -184,7 +187,7 @@ m_robotDrive.joy_arcadeDrive (
  
   @Override
   public void periodic() {
- SmartDashboard.putNumber("Encoder Left Position", m_leftdriveEncoder.getPosition());
+    SmartDashboard.putNumber("Encoder Left Position", m_leftdriveEncoder.getPosition());
     SmartDashboard.putNumber("Encoder Right Position", m_rightdriveEncoder.getPosition());
 
     SmartDashboard.putNumber("Encoder counts per Rev", m_leftdriveEncoder.getCountsPerRevolution());
@@ -192,8 +195,8 @@ m_robotDrive.joy_arcadeDrive (
 
     SmartDashboard.putNumber("Encoder Left Velocity", m_leftdriveEncoder.getVelocity());
     SmartDashboard.putNumber("Encoder Right Velocity", m_leftdriveEncoder.getVelocity());
-    SmartDashboard.putNumber("Encoder Left Vel Con Factor", m_leftdriveEncoder.getVelocityConversionFactor());
-    SmartDashboard.putNumber("Encoder Right Vel Con Factor", m_leftdriveEncoder.getVelocityConversionFactor());
+    SmartDashboard.putNumber("Encoder Left Vel Conv Factor", m_leftdriveEncoder.getVelocityConversionFactor());
+    SmartDashboard.putNumber("Encoder Right Vel Conv Factor", m_leftdriveEncoder.getVelocityConversionFactor());
 
     // This method will be called once per scheduler run
   }
