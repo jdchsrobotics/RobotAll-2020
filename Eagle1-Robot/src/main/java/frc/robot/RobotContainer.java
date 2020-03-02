@@ -17,16 +17,18 @@ import edu.wpi.first.wpilibj2.command.RunCommand;
 
 import frc.robot.Controls.ControlMap;
 import frc.robot.subsystems.DriveSubSystem;
+import frc.robot.subsystems.LifterSubSystem;
 import frc.robot.commands.Default_Drive;
 // Add after Autocode is written
 // import frc.robot.commands.GoAuto.*;
 
 import frc.robot.subsystems.ColorWheelSubSystem;
+import frc.robot.subsystems.LifterSubSystem;
 import frc.robot.commands.ColorWheelGetColor;
 import frc.robot.commands.GoAuto;
-
+import frc.robot.commands.LifterLift;
 import frc.robot.commands.BallManagementCmds.*;
-import frc.robot.commands.LifterCmds.*;
+
 
 // import frc.robot.Constants.eagle_DriveConstants;
 import frc.robot.Constants.OI_Constants;
@@ -52,8 +54,8 @@ public class RobotContainer {
   private final ColorWheelGetColor  c_colorwheelCmds = new ColorWheelGetColor(m_colorwheel);
 
   // Ball Management (shooting and/or pickup)
-  // Climber/LIfter stuff
-
+  private final LifterSubSystem     m_liftermotor = new LifterSubSystem();
+  private final LifterLift   c_liftermotorUp = new LifterLift (m_liftermotor);
   // Define the joystick for driver
  // private final Joystick m_stick = new Joystick(OI_Constants.Joystick_1_portID);
 
@@ -68,11 +70,12 @@ public class RobotContainer {
     // ACTION - may not be needed once color wheel is in Periodic
     // Start Periodic and/or Init+Execute
     m_colorwheel.colorInit();
+    m_liftermotor.setBrake();
   }
 
 private void configureDefaultCommands() {
    m_robotDrive.setDefaultCommand(c_drive);
-
+  
 }
 
 // FIX -> needs the arcade drive exposed or synctax fixed

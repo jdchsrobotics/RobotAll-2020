@@ -182,9 +182,6 @@ m_robotDrive.joy_arcadeDrive (
  * 
  */
 
-
-
- 
   @Override
   public void periodic() {
     SmartDashboard.putNumber("Encoder Left Position", m_leftdriveEncoder.getPosition());
