@@ -82,13 +82,32 @@ public class LifterSubSystem extends SubsystemBase {
 
    }
 
-  public void moveUpConstantSpeed (){
+public void releaseLiftParkingBrake () {
+     // Add solinode up
+
+}
+public void setLiftParkingBrake () {
+     // Add solinode down
+}
+public void moveUpConstantSpeed (){
     m_lifter.set(0.25);
 
-  }
+}
+public void moveDownConstantSpeed (){
+    m_lifter.set(-0.25);
+
+}
+
+public void moveBalance (){
+    // set based on xbox left / right
+    // m_leveler.set(-0.25);
+}
+
+
+
   @Override
   public void periodic() {
-    m_lifter.set(0.25);
+  //  m_lifter.set(0.25);
   }
 
 }

@@ -1,10 +1,7 @@
 /*
  *  Lifter SubSystem Commands
- *  -> Set Brake
- *  -> Lift Up
- *  -> Lift Down
- *  -> Balance Left
- *  -> Balance Right
+ *  -> Release Brake
+ *  -> Motor Down
 */
 
 
@@ -14,11 +11,11 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 
 import frc.robot.subsystems.LifterSubSystem;
 
-public class LifterLift extends CommandBase {
+public class LifterDown extends CommandBase {
     @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
     private final LifterSubSystem m_lifter;
     
-    public LifterLift (LifterSubSystem subsystem) {
+    public LifterDown (LifterSubSystem subsystem) {
       m_lifter = subsystem;
 
       // Use addRequirements() here to declare subsystem dependencies.
@@ -34,7 +31,7 @@ public class LifterLift extends CommandBase {
     public final void execute () {
         // remove to real code connected to a button later
         m_lifter.releaseLiftParkingBrake();
-        m_lifter.moveUpConstantSpeed();
+        m_lifter.moveDownConstantSpeed();
     }
     
 
