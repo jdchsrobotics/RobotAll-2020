@@ -2,13 +2,12 @@ package frc.robot.Controls;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-
+import frc.robot.Constants.OI_Constants;
+;
 
 public class ControlMap{
   // Controller objects
-  public static Joystick m_driver_stick = new Joystick(0);
-
-    //  public static Joystick gunner = new Joystick(1);
+  public static Joystick m_driver_stick = new Joystick(OI_Constants.Joystick_1_portID);
 
 
     // Driver buttons

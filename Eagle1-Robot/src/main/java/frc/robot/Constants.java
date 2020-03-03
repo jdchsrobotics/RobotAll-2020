@@ -19,8 +19,6 @@ public final class Constants {
 
     // Drive Variables
     public static final class eagle_DriveConstants {
-
-
         // LEft Motor 1/4, right motor 2/3 
         public static final int leftMotorCanID = 1;
         public static final int leftSlaveMotorCanID = 4; 
@@ -33,7 +31,6 @@ public final class Constants {
         public static final int balancemotor = 21;  // Talon SRX
         public static final float runUpMotor = (float) 0.5;
         public static final float runDownMotor = (float) 0.5;
- 
     }
 
     // Ball Mangement Constants
@@ -45,11 +42,7 @@ public final class Constants {
         public static final float runUpTimeRollers   = (float) 0.2; // Window Motor Up
     }
 
-
-
-
     public static final class EncoderConstants {
-
         public static final int LeftEncoderID = 1;
         public static final int LeftSlaveEncoderID = 4;
         public static final int LeftEncoderReverseID = 0;
@@ -59,7 +52,6 @@ public final class Constants {
         public static final int RightEncoderReverseID = 1;
         // RESEARCH: value of reverseID either 0 or 1
         
-
         public static final double kP = 5e-5; 
         public static final double kI = 1e-6;
         public static final double kD = 0; 
@@ -73,8 +65,10 @@ public final class Constants {
 
     // Input/OI Type devices
     public static final class OI_Constants {
-        // Joystick - port 1
-        public static final int Joystick_1_portID = 0;
+        // Joystick - port 0
+        public static final int Joystick_1_portID = 1;
+        // Xbox Controller port
+        public static final int xbox_Controller_portID = 2;
 
     }
     public static final class Xbox_Constants {

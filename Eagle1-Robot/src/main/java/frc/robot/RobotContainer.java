@@ -51,11 +51,11 @@ public class RobotContainer {
 
   // Color Wheel  
   private final ColorWheelSubSystem m_colorwheel = new ColorWheelSubSystem();
-  private final ColorWheelGetColor  c_colorwheelCmds = new ColorWheelGetColor(m_colorwheel);
+ // private final ColorWheelGetColor  c_colorwheelCmds = new ColorWheelGetColor(m_colorwheel);
 
   // Ball Management (shooting and/or pickup)
   private final LifterSubSystem     m_liftermotor = new LifterSubSystem();
-  private final LifterLift   c_liftermotorUp = new LifterLift (m_liftermotor);
+  
   // Define the joystick for driver
  // private final Joystick m_stick = new Joystick(OI_Constants.Joystick_1_portID);
 
@@ -70,7 +70,8 @@ public class RobotContainer {
     // ACTION - may not be needed once color wheel is in Periodic
     // Start Periodic and/or Init+Execute
     m_colorwheel.colorInit();
-    m_liftermotor.setBrake();
+    m_liftermotor.setMotorBrake();
+
   }
 
 private void configureDefaultCommands() {

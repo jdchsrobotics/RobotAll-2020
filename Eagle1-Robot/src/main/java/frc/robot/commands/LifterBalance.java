@@ -1,14 +1,14 @@
 /*
  *  Lifter SubSystem Commands
- *  -> Release Brake
- *  -> Motor Down
+ *   LiftBalancer
+ *  -> Move Left/Right based on Joystick on Xbox
+ * 
 */
-
 
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
-
+import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.subsystems.LifterSubSystem;
 
 public class LifterBalance extends CommandBase {
@@ -24,13 +24,17 @@ public class LifterBalance extends CommandBase {
 
     @Override
     public final void initialize () {
-        m_lifter.setBrake();
+        m_lifter.setMotorBrake();
     }
 
+
+    // ACTION - Add paraemter to use joystick value like drive subsystem
     @Override
     public final void execute () {
         // remove to real code connected to a button later
-        m_lifter.moveBalance ();
+        m_lifter.moveBalanceRight();
+        new WaitCommand(1);
+        m_lifter.moveBalanceLeft();
 
     }
     

@@ -16,9 +16,11 @@ D - Drive only ball pickup
 import edu.wpi.first.wpilibj2.command.Command;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
-
+import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.Constants;
 import frc.robot.subsystems.DriveSubSystem;
+
+import edu.wpi.first.wpilibj.RobotController;
 
 public class GoAuto extends CommandBase {
   /**
@@ -38,14 +40,30 @@ public class GoAuto extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
+    System.out.println("Temporary Auto-Drive Forward");
+    long millisecondsToRun = 20000; // This should run 1000ms = 1 s.
+    long initTime = RobotController.getFPGATime();
+    while (RobotController.getFPGATime() - initTime <= millisecondsToRun) {
+    m_DriveSubSystem.Drive(.5, 0);
+    }
+   // new WaitCommand(2);
+    System.out.println("Temporary Auto-Drive Rotate");
+    initTime = RobotController.getFPGATime();
+    while (RobotController.getFPGATime() - initTime <= millisecondsToRun) {
+    m_DriveSubSystem.Drive(0, .5);
+    }
+    System.out.println("Temporary Auto-Drive Stop Now");
+    initTime = RobotController.getFPGATime();
+    while (RobotController.getFPGATime() - initTime <= millisecondsToRun) {
+    m_DriveSubSystem.Drive(-0.5, 0);
+    }
+   // new WaitCommand(2);
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    System.out.println("Temporary Auto-Drive Forward");
-    System.out.println("Temporary Auto-Drive Rotate");
-    System.out.println("Temporary Auto-Drive Stop Now");
+
   }
 
   // Called once the command ends or is interrupted.

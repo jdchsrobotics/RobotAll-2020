@@ -142,6 +142,11 @@ m_robotDrive.joy_arcadeDrive (
    
   }
 
+  public void Drive(double fwd, double rot) {
+    m_robotDrive.arcadeDrive(fwd, rot);
+  }
+
+
 // Once Encoders are used need something like this
 /**
  * 
