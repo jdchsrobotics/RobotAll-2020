@@ -35,8 +35,8 @@ public final class Constants {
 
     // Ball Mangement Constants
     public static final class ballConstants {
-        public static final int ballupdownMotor = 22;  // Talon SPX VexPro (window motor)V
-        public static final int leftRollerMotor = 23;  // Talon SRX 
+        public static final int ballupdownMotor = 22;  // Talon SPX VexPro V
+        public static final int leftRollerMotor = 25;  // Talon SRX 
         public static final int rightRollMotor = 24;   // Talon SRX
         public static final float runDownTimeRollers = (float) 0.2; // Window Motor Down
         public static final float runUpTimeRollers   = (float) 0.2; // Window Motor Up
@@ -66,9 +66,9 @@ public final class Constants {
     // Input/OI Type devices
     public static final class OI_Constants {
         // Joystick - port 0
-        public static final int Joystick_1_portID = 1;
+        public static final int Joystick_1_portID = 0;
         // Xbox Controller port
-        public static final int xbox_Controller_portID = 2;
+        public static final int xbox_Controller_portID = 1;
 
     }
     public static final class Xbox_Constants {
@@ -112,5 +112,6 @@ public final class Constants {
         public static final double Yellow1 = 0.361;
         public static final double Yellow2 = 0.524;
         public static final double Yellow3 = 0.113;
+        public static final double ColorWheelSpinner = 23; //colorwheel spinner
     }
 }

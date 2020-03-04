@@ -46,7 +46,7 @@ public class Default_Drive extends CommandBase {
     // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_drive.joy_arcadeDrive((-1 * ControlMap.m_driver_stick.getY()), ControlMap.m_driver_stick.getX());
+    m_drive.joy_arcadeDrive( ControlMap.m_driver_stick.getY(), ControlMap.m_driver_stick.getX());
    
   }
 

@@ -64,8 +64,8 @@ public class LifterSubSystem extends SubsystemBase {
     // ACTION: Check CANBUS Id
  private final TalonSRX    m_leveler        = new TalonSRX(lifterConstants.balancemotor);
  private final CANSparkMax m_lifter         = new CANSparkMax(lifterConstants.liftermotor, MotorType.kBrushless);
- 
- private static Servo s_BrakeTapper;
+
+ private static Servo s_BrakeTapper = new Servo(8);
  private static final boolean invertBrake = true;
  
  //These need to match the implementation of angle ranges in the Servo class.
@@ -78,7 +78,7 @@ public class LifterSubSystem extends SubsystemBase {
 	 * A private constructor to prevent multiple instances from being created.
 	 * @return 
 	 */
- // private void ServoBrakeTapper() {
+//  private void ServoBrakeTapper() {
 //		s_BrakeTapper = new Servo(0);
 	
  // }	
@@ -89,7 +89,6 @@ public class LifterSubSystem extends SubsystemBase {
   public void setMotorBrake() {
      if(m_lifter.setIdleMode(IdleMode.kBrake) != CANError.kOk){
          SmartDashboard.putString("Idle Mode", "Error");
-         s_BrakeTapper = new Servo(0);
    s_BrakeTapper.setAngle(0);
    s_BrakeTapper.setAngle(90);
     }
@@ -148,8 +147,10 @@ public void moveBalanceLeft (){
 
   @Override
   public void periodic() {
+      // USed to test of motor is alive
   //  m_lifter.set(0.25);
-
+ // m_leveler.set(ControlMode.PercentOutput,0.25);
+ s_BrakeTapper.setAngle(90);
   }
 
 }
