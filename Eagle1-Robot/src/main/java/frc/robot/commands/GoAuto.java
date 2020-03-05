@@ -43,10 +43,12 @@ public class GoAuto extends CommandBase {
     System.out.println("Temporary Auto-Drive Forward");
     long millisecondsToRun = 20000; // This should run 1000ms = 1 s.
     long initTime = RobotController.getFPGATime();
+
     while (RobotController.getFPGATime() - initTime <= millisecondsToRun) {
-    m_DriveSubSystem.Drive(.5, 0);
+         m_DriveSubSystem.Drive(.5, 0);
     }
-   // new WaitCommand(2);
+    m_DriveSubSystem.Drive(0,0);  
+    // new WaitCommand(2);
    /*
     System.out.println("Temporary Auto-Drive Rotate");
     initTime = RobotController.getFPGATime();

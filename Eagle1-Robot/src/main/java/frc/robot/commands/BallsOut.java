@@ -4,6 +4,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.WaitCommand;
 
 import frc.robot.subsystems.BallManagementSubSystem;
 
@@ -27,16 +28,19 @@ public class BallsOut extends CommandBase {
     @Override
     public final void execute () {
         m_BallManagementSubSystem.returnBalls();
+       
     }
 
     @Override
     public final void end (boolean interrupted) {
-      
+        m_BallManagementSubSystem.setRollerMotorBrake(0);
+
+
     }
 
     @Override
     public boolean isFinished() {
-     return false;
+        return false;
     }
   
 }

@@ -86,7 +86,7 @@ public class RobotContainer {
     // Start Periodic and/or Init+Execute
     m_colorwheel.colorInit();
     m_lifterSystem.setMotorBrake();
-
+    
   }
 
 private void configureDefaultCommands() {
@@ -119,8 +119,8 @@ private void configureDefaultCommands() {
     ControlMap.getB6_BalRight.whenHeld (new LifterBalanceRight(m_lifterSystem));
 
     //  ACTION = Map to Balls
-    ControlMap.getStkRight_CageUp.whenHeld (new BallCageUp(m_ballSystem));
-    ControlMap.getStkLeft_CageUp.whenHeld (new BallCageDown(m_ballSystem));
+    ControlMap.getStkLeft_CageUp.whenHeld (new BallCageUp(m_ballSystem));
+    ControlMap.getStkRight_CageUp.whenHeld (new BallCageDown(m_ballSystem));
     ControlMap.getBumpLeft_BallsIN.whenHeld (new BallsIn(m_ballSystem));
     ControlMap.getBumpRight_BallsOUT.whenHeld (new BallsOut(m_ballSystem));
 

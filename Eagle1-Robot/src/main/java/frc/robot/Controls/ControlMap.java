@@ -30,8 +30,8 @@ public class ControlMap{
     public final static Button getB4_BalLeft = new JoystickButton(ControlMap.m_driver_stick, 4 );
 
     // Map Ball Subsystem
-    public final static Button getStkRight_CageUp = new JoystickButton(ControlMap.m_helper_xbox, XboxController.Button.kStickRight.value );
     public final static Button getStkLeft_CageUp = new JoystickButton(ControlMap.m_helper_xbox, XboxController.Button.kStickLeft.value );
+    public final static Button getStkRight_CageUp = new JoystickButton(ControlMap.m_helper_xbox, XboxController.Button.kStickRight.value );
     public final static Button getBumpLeft_BallsIN = new JoystickButton(ControlMap.m_helper_xbox, XboxController.Button.kBumperLeft.value );
     public final static Button getBumpRight_BallsOUT = new JoystickButton(ControlMap.m_helper_xbox, XboxController.Button.kBumperRight.value );
  

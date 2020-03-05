@@ -31,7 +31,7 @@ public class BallCageDown extends CommandBase {
 
     @Override
     public final void end (boolean interrupted) {
-      
+        m_BallManagementSubSystem.setCageMotorBrake (0);
     }
 
     @Override

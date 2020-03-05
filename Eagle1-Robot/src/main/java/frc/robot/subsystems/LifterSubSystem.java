@@ -84,10 +84,12 @@ public class LifterSubSystem extends SubsystemBase {
 
 // Set Lifter to Brake if not operating
   public void setMotorBrake() {
-     if(m_lifter.setIdleMode(IdleMode.kBrake) != CANError.kOk){
+    m_lifter.set(0);
+    if(m_lifter.setIdleMode(IdleMode.kBrake) != CANError.kOk){
          SmartDashboard.putString("Idle Mode", "Error");
-   s_BrakeTapper.setAngle(0);
-   s_BrakeTapper.setAngle(90);
+
+      //   s_BrakeTapper.setAngle(0);
+        
     }
  // m_lifter.setIdleMode(IdleMode.kBrake);
 
@@ -97,6 +99,7 @@ public class LifterSubSystem extends SubsystemBase {
       } else {
         SmartDashboard.putString("Idle Mode", "Brake");
       }
+
    }
 
 // Servo for Brake Mechanism
@@ -110,14 +113,14 @@ public void setLiftParkingBrake () {
 }
 // Up and Down
 public void moveUpConstantSpeed (){
-    m_lifter.set(0.25);
+    m_lifter.set(-0.25);
     // ACTION
     // Remove Delay once joystick works
     //  WaitCommand(2);
     // m_lifter.set(0);
 }
 public void moveDownConstantSpeed (){
-    m_lifter.set(-0.25);
+    m_lifter.set(0.25);
     // ACTION
     // Remove Delay once joystick works
    // new WaitCommand(2);
@@ -141,14 +144,21 @@ public void moveBalanceLeft (){
    //  m_lifter.set(0);
 }
 
+public void moveBalanceMotorBrake (double speed) {
+  m_leveler.set(ControlMode.PercentOutput, speed);
+}
 
+public void setLifterMotorSpeed(double speed){
+  m_lifter.set (speed);
+
+}
   @Override
   public void periodic() {
       // USed to test of motor is alive
  //   m_lifter.set(0.25);
 // m_leveler.set(ControlMode.PercentOutput,0.1);
  //   s_BrakeTapper.setAngle(90);
-  //  s_BrakeTapper.setAngle(0);
+    s_BrakeTapper.setAngle(0);
   }
 
 }

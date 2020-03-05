@@ -43,6 +43,7 @@ public class LifterUp extends CommandBase {
 
     @Override
     public final void end (boolean interrupted) {
+        m_lifter.setLifterMotorSpeed(0);
         m_lifter.setLiftParkingBrake();
         m_lifter.setMotorBrake();
     }
