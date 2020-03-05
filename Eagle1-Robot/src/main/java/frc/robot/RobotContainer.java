@@ -10,25 +10,39 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
+//import edu.wpi.first.wpilibj.XboxController.Button;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.button.Button;
 import edu.wpi.first.wpilibj2.command.RunCommand;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 // Add when COMMAND file .java is fixed import frc.robot.commands.Teleop_Drive;
 
 import frc.robot.Controls.ControlMap;
+import frc.robot.Controls.xboxControllerMap;
 import frc.robot.subsystems.DriveSubSystem;
 import frc.robot.subsystems.LifterSubSystem;
 import frc.robot.commands.Default_Drive;
+import frc.robot.commands.LifterBalanceLeft;
+import frc.robot.commands.*;
 // Add after Autocode is written
 // import frc.robot.commands.GoAuto.*;
 
 import frc.robot.subsystems.ColorWheelSubSystem;
 import frc.robot.subsystems.LifterSubSystem;
-import frc.robot.commands.ColorWheelGetColor;
+import frc.robot.commands.findRedColor;
+import frc.robot.commands.findGreenColor;
+import frc.robot.commands.findBlueColor;
+import frc.robot.commands.findYellowColor;
 import frc.robot.commands.GoAuto;
+import frc.robot.commands.LifterBalanceRight;
 import frc.robot.commands.LifterLift;
 import frc.robot.subsystems.BallManagementSubSystem;
-import frc.robot.commands.BallManagementCmds.*;
+import frc.robot.commands.BallCageDown;
+import frc.robot.commands.BallCageUp;
+import frc.robot.commands.BallsIn;
+import frc.robot.commands.BallsOut;
+
 
 
 // import frc.robot.Constants.eagle_DriveConstants;
@@ -100,7 +114,29 @@ private void configureDefaultCommands() {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-// Add xbox stuff here (ACTION JMG)
+// From github.com/Team612/612-2020/xxxxx/RobotContainer.java
+   // COlor Wheel Commands
+
+    ControlMap.getkA_Green.whenHeld (new findGreenColor(m_colorwheel));
+    ControlMap.getkB_Red.whenHeld (new findRedColor(m_colorwheel));
+    ControlMap.getkY_Yellow.whenHeld (new findYellowColor(m_colorwheel));
+    ControlMap.getkX_Blue.whenHeld (new findBlueColor(m_colorwheel));
+
+//  ACTION = Map to LIfter
+   /*  ControlMap.getxxxx.whenHeld (new LifterUp(m_liftermotor));
+    ControlMap.getxxxxx.whenHeld (new LifterDown(m_liftermotor));
+    ControlMap.getxxxxx_Yellow.whenHeld (new LifterBalanceLeft(m_liftermotor));
+    ControlMap.getxxxxx_Blue.whenHeld (new LifterBalanceRight(m_liftermotor));
+*/
+    //  ACTION = Map to Balls
+   /*  ControlMap.getxxxx.whenHeld (new BallCageUp(m_ballSystem));
+    ControlMap.getxxxxx.whenHeld (new BallCageDown(m_ballSystem));
+    ControlMap.getxxxxx_Yellow.whenHeld (new BallsIn(m_ballSystem));
+    ControlMap.getxxxxx_Blue.whenHeld (new BallsOut(m_ballSystem));
+*/
+
+
+// Rest for reference - can be removed once things are working
 //https://github.com/wpilibsuite/allwpilib/blob/master/wpilibjExamples/src/main/java/edu/wpi/first/wpilibj/examples/hatchbottraditional/RobotContainer.java
 
   // Grab the hatch when the 'A' button is pressed.

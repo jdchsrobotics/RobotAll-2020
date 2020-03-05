@@ -1,13 +1,41 @@
 package frc.robot.Controls;
 
-import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.Constants.OI_Constants;
-;
+import frc.robot.Constants.Xbox_Constants;
+import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.XboxController;
+//import edu.wpi.first.wpilibj.XboxController.Button;
+import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.button.Button;
+import edu.wpi.first.wpilibj2.command.RunCommand;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+
 
 public class ControlMap{
   // Controller objects
   public static Joystick m_driver_stick = new Joystick(OI_Constants.Joystick_1_portID);
+  public static XboxController m_helper_xbox = new XboxController(OI_Constants.xbox_Controller_portID);
+  
+  // Map Colors   ka = green, kB = REd, ky = yellow, kx=blue
+    public final static Button getkA_Green = new JoystickButton(ControlMap.m_helper_xbox, XboxController.Button.kA.value );
+    public final static Button getkB_Red = new JoystickButton(ControlMap.m_helper_xbox, XboxController.Button.kB.value );
+    public final static Button getkY_Yellow = new JoystickButton(ControlMap.m_helper_xbox, XboxController.Button.kY.value );
+    public final static Button getkX_Blue = new JoystickButton(ControlMap.m_helper_xbox, XboxController.Button.kX.value );
+
+    // Map lifter
+ //  public final static Button getxxx_LiftUp = new JoystickButton(ControlMap.m_helper_xbox, XboxController.Button.kA.value );
+  //  public final static Button getkxxx_LiftDown = new JoystickButton(ControlMap.m_helper_xbox, XboxController.Button.kB.value );
+ //   public final static Button getkxxx_BalRight = new JoystickButton(ControlMap.m_helper_xbox, XboxController.Button.kY.value );
+ //   public final static Button getkX_BalLeft = new JoystickButton(ControlMap.m_helper_xbox, XboxController.Button.kX.value );
+
+    // Map Ball Subsystem
+   //  public final static Button getxxx_CageUp = new JoystickButton(ControlMap.m_helper_xbox, XboxController.Button.kA.value );
+  //  public final static Button getkxxx_CageDown = new JoystickButton(ControlMap.m_helper_xbox, XboxController.Button.kB.value );
+ //   public final static Button getkxxx_BallsIN = new JoystickButton(ControlMap.m_helper_xbox, XboxController.Button.kY.value );
+ //   public final static Button getkX_BallsOUT = new JoystickButton(ControlMap.m_helper_xbox, XboxController.Button.kX.value );
+ 
+
 
 
     // Driver buttons
@@ -25,19 +53,6 @@ public class ControlMap{
 */
 
 
-    // Gunner buttons
-/*
-    public static JoystickButton RUN_INTAKE    	        = new JoystickButton(gunner,7);// back button
-    public static JoystickButton RUN_OUTTAKE            = new JoystickButton(gunner,8);// start
-    public static JoystickButton RUN_FLYWHEEL           = new JoystickButton(gunner,9); // Left joystick press
-    public static JoystickButton ENGAGE_CLIMB           = new JoystickButton(gunner,2); // B
-    public static JoystickButton TOGGLE_HOOK            = new JoystickButton(gunner,3); // X
-    public static JoystickButton RUN_WINCH              = new JoystickButton(gunner,10); // Joyright
-    public static JoystickButton REVERSE_WINCH          = new JoystickButton(gunner,6); //RB
-    public static JoystickButton ENGAGE_COLOR_WHEEL = new JoystickButton(gunner, 4);//Y
-    public static JoystickButton ROTATE_WHEEL = new JoystickButton(gunner, 1);// A
-    public static JoystickButton SPIN_TO_COLOR = new JoystickButton(gunner, 5);
-*/
     
 
 

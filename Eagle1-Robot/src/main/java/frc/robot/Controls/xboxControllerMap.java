@@ -9,14 +9,15 @@ package frc.robot.Controls;
 import frc.robot.Constants.OI_Constants;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
-// import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.XboxController;
+import static edu.wpi.first.wpilibj.XboxController.Button;
+
 
 import edu.wpi.first.hal.FRCNetComm.tResourceType;
 import edu.wpi.first.hal.HAL;
 
-import edu.wpi.first.wpilibj.GenericHID;
-import edu.wpi.first.wpilibj.XboxController;
-import static edu.wpi.first.wpilibj.XboxController.Button;
+
 
 /**
  * Handle input from Xbox 360 or Xbox One controllers connected to the Driver Station.
@@ -79,13 +80,6 @@ public class xboxControllerMap extends GenericHID {
     }
   }
 
-    /**
-     * Construct an instance of a joystick. The joystick index is the USB port on
-     * the drivers station.
-     *
-     * @param port The port on the Driver Station that the joystick is plugged into.
-     * @return
-     */
 
 
   /**

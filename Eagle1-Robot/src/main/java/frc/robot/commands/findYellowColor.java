@@ -27,14 +27,14 @@ import com.revrobotics.ColorMatchResult;
 import com.revrobotics.ColorMatch;
 
 
-public class ColorWheelGetColor extends CommandBase {
+public class findYellowColor extends CommandBase {
     /**
      * Change the I2C port below to match the connection of your color sensor
      */
 
     private final ColorWheelSubSystem m_ColorWheelSubSystem;
 
-    public ColorWheelGetColor (ColorWheelSubSystem subSystem) {
+    public findYellowColor (ColorWheelSubSystem subSystem) {
       m_ColorWheelSubSystem = subSystem;
   // CONTINUE FROM HERE ADD REQUIREMENT FROM THIS LINK
   // https://github.com/wpilibsuite/allwpilib/blob/master/wpilibjExamples/src/main/java/edu/wpi/first/wpilibj/templates/commandbased/commands/ExampleCommand.java
