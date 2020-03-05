@@ -26,7 +26,7 @@ public class BallsOut extends CommandBase {
 
     @Override
     public final void execute () {
-
+        m_BallManagementSubSystem.returnBalls();
     }
 
     @Override

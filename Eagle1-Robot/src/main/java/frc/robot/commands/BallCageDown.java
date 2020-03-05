@@ -26,7 +26,7 @@ public class BallCageDown extends CommandBase {
 
     @Override
     public final void execute () {
-
+        m_BallManagementSubSystem.downBallCage ();
     }
 
     @Override
@@ -40,3 +40,4 @@ public class BallCageDown extends CommandBase {
     }
   
 }
+

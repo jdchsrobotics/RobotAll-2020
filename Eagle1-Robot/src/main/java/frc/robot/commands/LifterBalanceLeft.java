@@ -24,7 +24,7 @@ public class LifterBalanceLeft extends CommandBase {
 
     @Override
     public final void initialize () {
-        m_lifter.setMotorBrake();
+    
     }
 
 
@@ -37,15 +37,15 @@ public class LifterBalanceLeft extends CommandBase {
 
     }
     
-
     @Override
     public final void end (boolean interrupted) {
-
+        m_lifter.setMotorBrake();
     }
 
     @Override
     public boolean isFinished() {
         // Above commands should be based on Buttons vs "isfinsihed"
+       
      return false;
     }
 

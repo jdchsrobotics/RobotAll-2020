@@ -24,8 +24,8 @@ public class LifterDown extends CommandBase {
 
     @Override
     public final void initialize () {
-        m_lifter.setMotorBrake();
-        m_lifter.setLiftParkingBrake();
+//    m_lifter.setMotorBrake();
+//        m_lifter.setLiftParkingBrake();
     }
 
 
@@ -42,6 +42,7 @@ public class LifterDown extends CommandBase {
     @Override
     public final void end (boolean interrupted) {
         m_lifter.setLiftParkingBrake();
+        m_lifter.setMotorBrake();
     }
 
     @Override

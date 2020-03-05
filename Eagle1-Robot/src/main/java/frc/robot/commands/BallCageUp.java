@@ -26,7 +26,7 @@ public class BallCageUp extends CommandBase {
 
     @Override
     public final void execute () {
-
+      m_BallManagementSubSystem.upBallCage();
     }
 
     @Override

@@ -26,7 +26,7 @@ public class BallsIn extends CommandBase {
 
     @Override
     public final void execute () {
-
+        m_BallManagementSubSystem.pickupBalls();
     }
 
     @Override

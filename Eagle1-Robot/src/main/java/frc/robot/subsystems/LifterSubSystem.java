@@ -64,8 +64,7 @@ public class LifterSubSystem extends SubsystemBase {
  private final CANSparkMax m_lifter         = new CANSparkMax(lifterConstants.liftermotor, MotorType.kBrushless);
  private static Servo s_BrakeTapper = new Servo(0);
  
- private static final boolean invertBrake = true;
- 
+ // private static final boolean invertBrake = true;
  //These need to match the implementation of angle ranges in the Servo class.
  //TODO: modify the servo class to allow you to set min/max angles.
 
@@ -114,15 +113,15 @@ public void moveUpConstantSpeed (){
     m_lifter.set(0.25);
     // ACTION
     // Remove Delay once joystick works
-    new WaitCommand(2);
-    m_lifter.set(0);
+    //  WaitCommand(2);
+    // m_lifter.set(0);
 }
 public void moveDownConstantSpeed (){
     m_lifter.set(-0.25);
     // ACTION
     // Remove Delay once joystick works
-    new WaitCommand(2);
-    m_lifter.set(0);
+   // new WaitCommand(2);
+    // m_lifter.set(0);
 }
 
 // Move Balancing Motor Left/Right
@@ -131,15 +130,15 @@ public void moveBalanceRight (){
     // set based on xbox left / right
      m_leveler.set(ControlMode.PercentOutput, -0.1);
          // Remove Delay once joystick works
-    new WaitCommand(2);
-    m_lifter.set(0);
+    // new WaitCommand(2);
+    // m_lifter.set(0);
 }
 public void moveBalanceLeft (){
     // set based on xbox left / right
      m_leveler.set(ControlMode.PercentOutput, 0.1);
          // Remove Delay once joystick works
-    new WaitCommand(2);
-    m_lifter.set(0);
+   // new WaitCommand(2);
+   //  m_lifter.set(0);
 }
 
 

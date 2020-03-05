@@ -47,18 +47,21 @@ public class GoAuto extends CommandBase {
     m_DriveSubSystem.Drive(.5, 0);
     }
    // new WaitCommand(2);
+   /*
     System.out.println("Temporary Auto-Drive Rotate");
     initTime = RobotController.getFPGATime();
     while (RobotController.getFPGATime() - initTime <= millisecondsToRun) {
     m_DriveSubSystem.Drive(0, .5);
     }
-    System.out.println("Temporary Auto-Drive Stop Now");
+
+     System.out.println("Temporary Auto-Drive Stop Now");
     initTime = RobotController.getFPGATime();
     while (RobotController.getFPGATime() - initTime <= millisecondsToRun) {
     m_DriveSubSystem.Drive(-0.5, 0);
+    */
     }
    // new WaitCommand(2);
-  }
+  
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override

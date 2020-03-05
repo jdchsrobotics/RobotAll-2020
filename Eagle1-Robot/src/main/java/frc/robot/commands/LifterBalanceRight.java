@@ -24,7 +24,7 @@ public class LifterBalanceRight extends CommandBase {
 
     @Override
     public final void initialize () {
-        m_lifter.setMotorBrake();
+    
     }
 
 
@@ -39,7 +39,7 @@ public class LifterBalanceRight extends CommandBase {
 
     @Override
     public final void end (boolean interrupted) {
-
+       m_lifter.setMotorBrake();
     }
 
     @Override

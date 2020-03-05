@@ -22,15 +22,7 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 // import com.ctre.phoenix.motorcontrol.DemandType;
 import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
-/*  FROM CONSTANTS FILE FOR REFERENCE
-public static final class ballConstants {
-    public static final int ballupdownMotor = 22;  // Talon SPX VexPro (window motor)V
-    public static final int leftRollerMotor = 23;  // Talon SRX 
-    public static final int rightRollMotor = 24;   // Talon SRX
-    public static final float runDownTimeRollers = (float) 0.2; // Window Motor Down
-    public static final float runUpTimeRollers   = (float) 0.2; // Window Motor Up
-}
-    */
+
     
 public class BallManagementSubSystem extends SubsystemBase {
     // ACTION - check CAN BUS ID
@@ -49,8 +41,8 @@ public class BallManagementSubSystem extends SubsystemBase {
     }
 
     public void returnBalls () {
-        m_ballrollerBL.set (ControlMode.PercentOutput,0.25);
-        m_ballrollerBR.set (ControlMode.PercentOutput,-0.75);
+        m_ballrollerBL.set (ControlMode.PercentOutput,0.35);
+        m_ballrollerBR.set (ControlMode.PercentOutput,-0.85);
     }
 
     public void downBallCage () {
@@ -60,7 +52,6 @@ public class BallManagementSubSystem extends SubsystemBase {
     public void upBallCage () {
         m_ballupdownWM.set (ControlMode.PercentOutput, 0.2);
     }
-
 
 
     @Override

@@ -102,7 +102,7 @@ private void configureDefaultCommands() {
    */
   private void configureButtonBindings() {
 // From github.com/Team612/612-2020/xxxxx/RobotContainer.java
-   // COlor Wheel Commands
+   // Color Wheel Commands
 
     ControlMap.getkA_Green.whenHeld (new findGreenColor(m_colorwheel));
     ControlMap.getkB_Red.whenHeld (new findRedColor(m_colorwheel));
