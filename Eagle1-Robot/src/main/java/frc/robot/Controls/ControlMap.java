@@ -22,7 +22,7 @@ public class ControlMap{
     public final static Button getkB_Red = new JoystickButton(ControlMap.m_helper_xbox, XboxController.Button.kB.value );
     public final static Button getkY_Yellow = new JoystickButton(ControlMap.m_helper_xbox, XboxController.Button.kY.value );
     public final static Button getkX_Blue = new JoystickButton(ControlMap.m_helper_xbox, XboxController.Button.kX.value );
-
+    public final static Button getStart = new JoystickButton (ControlMap.m_helper_xbox, XboxController.Button.kStart.value);
     // Map lifter
     public final static Button getB5_LiftUp = new JoystickButton(ControlMap.m_driver_stick, 5 );
     public final static Button getB3_LiftDown = new JoystickButton(ControlMap.m_driver_stick, 3);

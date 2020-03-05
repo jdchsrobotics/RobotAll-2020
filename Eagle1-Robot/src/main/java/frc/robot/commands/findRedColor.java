@@ -50,18 +50,18 @@ public class findRedColor extends CommandBase {
         m_ColorWheelSubSystem.colorInit();
     }
 
+
      @Override
      public final void execute() {
 
-     //   m_ColorWheelSubSystem.colorRead();
+        m_ColorWheelSubSystem.FindColor("Red");
      }
   
 
      @Override
      public final void end (boolean interrupted) {
-       
+         m_ColorWheelSubSystem.stopWheelSpinner();
      }
-
 
      @Override
      public boolean isFinished() {

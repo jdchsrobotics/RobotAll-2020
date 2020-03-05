@@ -108,7 +108,7 @@ private void configureDefaultCommands() {
     ControlMap.getkB_Red.whenHeld (new findRedColor(m_colorwheel));
     ControlMap.getkY_Yellow.whenHeld (new findYellowColor(m_colorwheel));
     ControlMap.getkX_Blue.whenHeld (new findBlueColor(m_colorwheel));
-
+    ControlMap.getStart.whenPressed (new findBlueColor (m_colorwheel));
 //  ACTION = Map to LIfter
     // Map lifter
 

@@ -50,17 +50,17 @@ public class findGreenColor extends CommandBase {
         m_ColorWheelSubSystem.colorInit();
     }
 
-     @Override
-     public final void execute() {
+    @Override
+    public final void execute() {
 
-     //   m_ColorWheelSubSystem.colorRead();
-     }
-  
+       m_ColorWheelSubSystem.FindColor("Green");
+    }
+ 
 
-     @Override
-     public final void end (boolean interrupted) {
-       
-     }
+    @Override
+    public final void end (boolean interrupted) {
+        m_ColorWheelSubSystem.stopWheelSpinner();
+    }
 
 
      @Override

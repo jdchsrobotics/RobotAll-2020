@@ -53,13 +53,13 @@ public class findYellowColor extends CommandBase {
      @Override
      public final void execute() {
 
-     //   m_ColorWheelSubSystem.colorRead();
+        m_ColorWheelSubSystem.FindColor("Yellow");
      }
   
 
      @Override
      public final void end (boolean interrupted) {
-       
+         m_ColorWheelSubSystem.stopWheelSpinner();
      }
 
 

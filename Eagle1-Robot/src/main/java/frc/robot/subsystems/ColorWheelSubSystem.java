@@ -66,6 +66,8 @@ public class ColorWheelSubSystem extends SubsystemBase {
   private final Color kRedTarget    = ColorMatch.makeColor(ColorConstants.Red1, ColorConstants.Red2, ColorConstants.Red3);
   private final Color kYellowTarget = ColorMatch.makeColor(ColorConstants.Yellow1, ColorConstants.Yellow2, ColorConstants.Yellow3);
 
+  public final String colorString = "Red";
+  private final Color  detectedColor = m_colorSensor.getColor();
     /**
      * The method GetColor() returns a normalized color value from the sensor and can be
      * useful if outputting the color to an RGB LED or similar. To
@@ -86,23 +88,120 @@ public class ColorWheelSubSystem extends SubsystemBase {
      
     } 
     
+
+// Make for yellow first
+    public void FindColor(String requiredColor) {
+
+      /*
+      RedColor read = Blue FindColor
+      GreenColor read= Yellow FindColor
+      BlueColor read = Red FindColor
+      YellowColor read= green FindColor
+      */
+      String ReadColor;
+     
+      if (requiredColor == "Red") {
+        ReadColor = "Blue";
+      } else if (requiredColor == "Green") {
+        ReadColor = "Yellow";
+      } else if (requiredColor == "Blue") {
+        ReadColor = "Red";
+      } else if (requiredColor == "Yellow") {
+        ReadColor = "Green";
+      } else {
+        ReadColor = "Unkown";
+      }
+      
+    
+      String colorStringY;
+      // Color detectedColor = m_colorSensor.getColor();
+      SmartDashboard.putString("ColorString", detectedColor.toString());
+      colorStringY = "Unknown";
+      
+    while (ReadColor != colorStringY) {
+      ColorMatchResult match = m_colorMatcher.matchClosestColor(detectedColor);
+        SmartDashboard.putNumber("Confidence", match.confidence);
+        SmartDashboard.putString("Detected Color", match.toString());
+      
+        if (match.color == kBlueTarget) {
+          colorStringY = "Blue";
+        } else if (match.color == kRedTarget) {
+          colorStringY = "Red";
+        } else if (match.color == kGreenTarget) { 
+         colorStringY = "Green";
+        } else if (match.color == kYellowTarget) {
+          colorStringY = "Yellow";
+        } else {
+          colorStringY = "Unknown";    }
+
+        SmartDashboard.putString("requiredColor", ReadColor);
+  
+        SmartDashboard.putString("ColorString", match.color.toString());
+        SmartDashboard.putString("ColorString", colorString);
+        SmartDashboard.putNumber("Red", detectedColor.red);
+        SmartDashboard.putNumber("Green", detectedColor.green);
+        SmartDashboard.putNumber("Blue", detectedColor.blue);
+        SmartDashboard.putNumber("Confidence", match.confidence);
+        SmartDashboard.putString("Detected Color", colorString);
+         //setmotor output to 0.25
+
+        }
+
+      }
+
     public void spinColorWheel () {
 // ACTION : add stuff from color branch here
         m_colorspinner.set(ControlMode.PercentOutput,  0.25);
 
     } 
 
+    public void spin_wheel3x () {
+      //spin wheel 3 times:
+      int i = 1;
+      // i is the number of times you have seen the initial color
+      m_colorspinner.set(ControlMode.PercentOutput,  0.20);
+      String colorString1 = "Red";
+      while (i < 6) {
+        // Are we getting this from Periodic
+      // Color detectedColor = m_colorSensor.getColor();
+         ColorMatchResult match1 = m_colorMatcher.matchClosestColor(detectedColor);
+         SmartDashboard.putNumber("Confidence", match1.confidence);
+         SmartDashboard.putString("Detected Color", match1.toString());
+    
+         if (match1.color == kBlueTarget) {
+         colorString1 = "Blue";
+          } else if (match1.color == kRedTarget) {
+           colorString1 = "Red";
+          } else if (match1.color == kGreenTarget) { 
+          colorString1 = "Green";
+         } else if (match1.color == kYellowTarget) {
+            colorString1 = "Yellow";
+         } else {
+            colorString1 = "Unknown";    }
+         
+        if (colorString1 == "Yellow") {
+          i = i+1;
+        } 
+        else { System.out.println("Not Yellow");
+      }
+       
+    }
+    }
+    public void stopWheelSpinner() {
+        m_colorspinner.set(ControlMode.PercentOutput,  0.0);
+      
+     }
+
     @Override
     public void periodic() {
       // This method will be called once per scheduler run
       
       // For testing only remove this line for comepition
-      m_colorspinner.set(ControlMode.PercentOutput,  0.25);
+      // m_colorspinner.set(ControlMode.PercentOutput,  0.25);
 
       Color detectedColor = m_colorSensor.getColor();
       SmartDashboard.putString("ColorString", detectedColor.toString());
  
-   
       String colorString;
       ColorMatchResult match = m_colorMatcher.matchClosestColor(detectedColor);
       SmartDashboard.putNumber("Confidence", match.confidence);
