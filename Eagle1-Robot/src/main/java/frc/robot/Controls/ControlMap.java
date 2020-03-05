@@ -24,16 +24,16 @@ public class ControlMap{
     public final static Button getkX_Blue = new JoystickButton(ControlMap.m_helper_xbox, XboxController.Button.kX.value );
 
     // Map lifter
- //  public final static Button getxxx_LiftUp = new JoystickButton(ControlMap.m_helper_xbox, XboxController.Button.kA.value );
-  //  public final static Button getkxxx_LiftDown = new JoystickButton(ControlMap.m_helper_xbox, XboxController.Button.kB.value );
- //   public final static Button getkxxx_BalRight = new JoystickButton(ControlMap.m_helper_xbox, XboxController.Button.kY.value );
- //   public final static Button getkX_BalLeft = new JoystickButton(ControlMap.m_helper_xbox, XboxController.Button.kX.value );
+    public final static Button getB5_LiftUp = new JoystickButton(ControlMap.m_driver_stick, 5 );
+    public final static Button getB3_LiftDown = new JoystickButton(ControlMap.m_driver_stick, 3);
+    public final static Button getB6_BalRight = new JoystickButton(ControlMap.m_driver_stick, 6 );
+    public final static Button getB4_BalLeft = new JoystickButton(ControlMap.m_driver_stick, 4 );
 
     // Map Ball Subsystem
-   //  public final static Button getxxx_CageUp = new JoystickButton(ControlMap.m_helper_xbox, XboxController.Button.kA.value );
-  //  public final static Button getkxxx_CageDown = new JoystickButton(ControlMap.m_helper_xbox, XboxController.Button.kB.value );
- //   public final static Button getkxxx_BallsIN = new JoystickButton(ControlMap.m_helper_xbox, XboxController.Button.kY.value );
- //   public final static Button getkX_BallsOUT = new JoystickButton(ControlMap.m_helper_xbox, XboxController.Button.kX.value );
+    public final static Button getStkRight_CageUp = new JoystickButton(ControlMap.m_helper_xbox, XboxController.Button.kStickRight.value );
+    public final static Button getStkLeft_CageUp = new JoystickButton(ControlMap.m_helper_xbox, XboxController.Button.kStickLeft.value );
+    public final static Button getBumpLeft_BallsIN = new JoystickButton(ControlMap.m_helper_xbox, XboxController.Button.kBumperLeft.value );
+    public final static Button getBumpRight_BallsOUT = new JoystickButton(ControlMap.m_helper_xbox, XboxController.Button.kBumperRight.value );
  
 
 

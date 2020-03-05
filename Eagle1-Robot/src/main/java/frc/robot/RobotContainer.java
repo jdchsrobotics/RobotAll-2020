@@ -36,7 +36,7 @@ import frc.robot.commands.findBlueColor;
 import frc.robot.commands.findYellowColor;
 import frc.robot.commands.GoAuto;
 import frc.robot.commands.LifterBalanceRight;
-import frc.robot.commands.LifterLift;
+import frc.robot.commands.LifterUp;
 import frc.robot.subsystems.BallManagementSubSystem;
 import frc.robot.commands.BallCageDown;
 import frc.robot.commands.BallCageUp;
@@ -69,7 +69,7 @@ public class RobotContainer {
  // private final ColorWheelGetColor  c_colorwheelCmds = new ColorWheelGetColor(m_colorwheel);
 
   // Ball Management (shooting and/or pickup)
-  private final LifterSubSystem     m_liftermotor = new LifterSubSystem();
+  private final LifterSubSystem     m_lifterSystem = new LifterSubSystem();
   private final BallManagementSubSystem m_ballSystem = new BallManagementSubSystem();
   // Define the joystick for driver
  // private final Joystick m_stick = new Joystick(OI_Constants.Joystick_1_portID);
@@ -85,7 +85,7 @@ public class RobotContainer {
     // ACTION - may not be needed once color wheel is in Periodic
     // Start Periodic and/or Init+Execute
     m_colorwheel.colorInit();
-    m_liftermotor.setMotorBrake();
+    m_lifterSystem.setMotorBrake();
 
   }
 
@@ -93,19 +93,6 @@ private void configureDefaultCommands() {
    m_robotDrive.setDefaultCommand(c_drive);
   
 }
-
-// FIX -> needs the arcade drive exposed or synctax fixed
-// Old Default Command Drive -> bypassed commands and calls subsystem directly
-// Nice for quick testing but does not support autonomous
-
-/*   m_robotDrive.setDefaultCommand (   
-         new RunCommand(() -> m_robotDrive.joy_arcadeDrive (
-                                (-1 * m_stick.getY())
-                                , m_stick.getX()  ),
-                m_robotDrive
-         )
-    );
-    */
 
   /**
    * Use this method to define your button->command mappings.  Buttons can be created by
@@ -123,22 +110,23 @@ private void configureDefaultCommands() {
     ControlMap.getkX_Blue.whenHeld (new findBlueColor(m_colorwheel));
 
 //  ACTION = Map to LIfter
-   /*  ControlMap.getxxxx.whenHeld (new LifterUp(m_liftermotor));
-    ControlMap.getxxxxx.whenHeld (new LifterDown(m_liftermotor));
-    ControlMap.getxxxxx_Yellow.whenHeld (new LifterBalanceLeft(m_liftermotor));
-    ControlMap.getxxxxx_Blue.whenHeld (new LifterBalanceRight(m_liftermotor));
-*/
+    // Map lifter
+
+    // Map Ball Subsystem
+    ControlMap.getB5_LiftUp.whenHeld (new LifterUp(m_lifterSystem));
+    ControlMap.getB3_LiftDown.whenHeld (new LifterDown(m_lifterSystem));
+    ControlMap.getB4_BalLeft.whenHeld (new LifterBalanceLeft(m_lifterSystem));
+    ControlMap.getB6_BalRight.whenHeld (new LifterBalanceRight(m_lifterSystem));
+
     //  ACTION = Map to Balls
-   /*  ControlMap.getxxxx.whenHeld (new BallCageUp(m_ballSystem));
-    ControlMap.getxxxxx.whenHeld (new BallCageDown(m_ballSystem));
-    ControlMap.getxxxxx_Yellow.whenHeld (new BallsIn(m_ballSystem));
-    ControlMap.getxxxxx_Blue.whenHeld (new BallsOut(m_ballSystem));
-*/
+    ControlMap.getStkRight_CageUp.whenHeld (new BallCageUp(m_ballSystem));
+    ControlMap.getStkLeft_CageUp.whenHeld (new BallCageDown(m_ballSystem));
+    ControlMap.getBumpLeft_BallsIN.whenHeld (new BallsIn(m_ballSystem));
+    ControlMap.getBumpRight_BallsOUT.whenHeld (new BallsOut(m_ballSystem));
 
 
 // Rest for reference - can be removed once things are working
 //https://github.com/wpilibsuite/allwpilib/blob/master/wpilibjExamples/src/main/java/edu/wpi/first/wpilibj/examples/hatchbottraditional/RobotContainer.java
-
   // Grab the hatch when the 'A' button is pressed.
   //new JoystickButton(m_driverController, Button.kA.value)
   //.whenPressed(new GrabHatch(m_hatchSubsystem));

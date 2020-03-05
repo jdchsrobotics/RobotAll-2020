@@ -14,11 +14,11 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 
 import frc.robot.subsystems.LifterSubSystem;
 
-public class LifterLift extends CommandBase {
+public class LifterUp extends CommandBase {
     @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
     private final LifterSubSystem m_lifter;
     
-    public LifterLift (LifterSubSystem subsystem) {
+    public LifterUp (LifterSubSystem subsystem) {
       m_lifter = subsystem;
 
       // Use addRequirements() here to declare subsystem dependencies.
