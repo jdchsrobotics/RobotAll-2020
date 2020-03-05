@@ -97,7 +97,8 @@ public class ColorWheelSubSystem extends SubsystemBase {
       // This method will be called once per scheduler run
       
       // For testing only remove this line for comepition
-     
+      m_colorspinner.set(ControlMode.PercentOutput,  0.25);
+
       Color detectedColor = m_colorSensor.getColor();
       SmartDashboard.putString("ColorString", detectedColor.toString());
  
