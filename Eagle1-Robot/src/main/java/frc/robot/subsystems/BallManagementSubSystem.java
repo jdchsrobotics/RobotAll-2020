@@ -13,11 +13,14 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants.ballConstants;
 
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 // import com.ctre.phoenix.motorcontrol.NeutralMode;
 // import com.ctre.phoenix.motorcontrol.ControlMode;
 // import com.ctre.phoenix.motorcontrol.DemandType;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 /*  FROM CONSTANTS FILE FOR REFERENCE
 public static final class ballConstants {
@@ -31,13 +34,42 @@ public static final class ballConstants {
     
 public class BallManagementSubSystem extends SubsystemBase {
     // ACTION - check CAN BUS ID
-    TalonSRX m_ballrollerBR = new TalonSRX(21);
-
-   // ADD PMW + TALON for Window Montor
-   TalonSRX m_ballupdownWM = new TalonSRX(22);
-   // PMW Line here
+    TalonSRX  m_ballrollerBL = new TalonSRX(ballConstants.leftRollerMotor);
+    TalonSRX  m_ballrollerBR = new TalonSRX(ballConstants.rightRollMotor);  
+    VictorSPX m_ballupdownWM = new VictorSPX(ballConstants.ballupdownMotor);
+   // PMW Line here  
 
 
     //  Add subsystem class info here
+
+
+    public void pickupBalls () {
+        m_ballrollerBL.set (ControlMode.PercentOutput,-0.35);
+        m_ballrollerBR.set (ControlMode.PercentOutput,0.85);
+    }
+
+    public void returnBalls () {
+        m_ballrollerBL.set (ControlMode.PercentOutput,0.25);
+        m_ballrollerBR.set (ControlMode.PercentOutput,-0.75);
+    }
+
+    public void downBallCage () {
+        m_ballupdownWM.set (ControlMode.PercentOutput, -0.1);
+    }
+
+    public void upBallCage () {
+        m_ballupdownWM.set (ControlMode.PercentOutput, 0.2);
+    }
+
+
+
+    @Override
+    public void periodic() {
+        // USed to test of motor is alive
+
+     // m_ballupdownWM.set (ControlMode.PercentOutput, -0.2);
+    }
+
+
 
 }

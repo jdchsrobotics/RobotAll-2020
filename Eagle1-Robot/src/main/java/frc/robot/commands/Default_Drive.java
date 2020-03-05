@@ -49,14 +49,10 @@ public class Default_Drive extends CommandBase {
     m_drive.joy_arcadeDrive( ControlMap.m_driver_stick.getY(), ControlMap.m_driver_stick.getX());
    
   }
-
-
   // Called when the command is initially scheduled.
   @Override
   public final  void initialize() {
   }
-
-
 
   // Called once the command ends or is interrupted.
   @Override

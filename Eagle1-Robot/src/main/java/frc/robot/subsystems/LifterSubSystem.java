@@ -48,8 +48,6 @@ import frc.robot.Constants.lifterConstants;
     }
 */ 
 
-
-
 // SparcMax Libraries
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMax.IdleMode;
@@ -64,8 +62,8 @@ public class LifterSubSystem extends SubsystemBase {
     // ACTION: Check CANBUS Id
  private final TalonSRX    m_leveler        = new TalonSRX(lifterConstants.balancemotor);
  private final CANSparkMax m_lifter         = new CANSparkMax(lifterConstants.liftermotor, MotorType.kBrushless);
-
- private static Servo s_BrakeTapper = new Servo(8);
+ private static Servo s_BrakeTapper = new Servo(0);
+ 
  private static final boolean invertBrake = true;
  
  //These need to match the implementation of angle ranges in the Servo class.
@@ -131,14 +129,14 @@ public void moveDownConstantSpeed (){
 // ACTION - add the ablity to send in Joystick left/right from xbox
 public void moveBalanceRight (){
     // set based on xbox left / right
-     m_leveler.set(ControlMode.PercentOutput, -0.25);
+     m_leveler.set(ControlMode.PercentOutput, -0.1);
          // Remove Delay once joystick works
     new WaitCommand(2);
     m_lifter.set(0);
 }
 public void moveBalanceLeft (){
     // set based on xbox left / right
-     m_leveler.set(ControlMode.PercentOutput, 0.25);
+     m_leveler.set(ControlMode.PercentOutput, 0.1);
          // Remove Delay once joystick works
     new WaitCommand(2);
     m_lifter.set(0);
@@ -148,9 +146,10 @@ public void moveBalanceLeft (){
   @Override
   public void periodic() {
       // USed to test of motor is alive
-  //  m_lifter.set(0.25);
- // m_leveler.set(ControlMode.PercentOutput,0.25);
- s_BrakeTapper.setAngle(90);
+ //   m_lifter.set(0.25);
+// m_leveler.set(ControlMode.PercentOutput,0.1);
+ //   s_BrakeTapper.setAngle(90);
+  //  s_BrakeTapper.setAngle(0);
   }
 
 }

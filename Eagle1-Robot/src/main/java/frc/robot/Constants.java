@@ -112,6 +112,6 @@ public final class Constants {
         public static final double Yellow1 = 0.361;
         public static final double Yellow2 = 0.524;
         public static final double Yellow3 = 0.113;
-        public static final double ColorWheelSpinner = 23; //colorwheel spinner
+        public static final int ColorWheelSpinner = 23; //colorwheel spinner
     }
 }

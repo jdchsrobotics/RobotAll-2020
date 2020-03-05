@@ -21,8 +21,11 @@ import com.revrobotics.ColorMatchResult;
 import com.revrobotics.ColorMatch;
 // import frc.robot.commands.ColorWheelGetColor;
 
+import frc.robot.Constants;
 import frc.robot.Constants.ColorConstants;
-
+import com.ctre.phoenix.motorcontrol.ControlMode;
+// Talon Libraries
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 // *********************************************
 // ALL CODE BELOW IS SAMPLE CODE FROM REV ROBOTICS FOR THIS LINk:
@@ -36,7 +39,7 @@ public class ColorWheelSubSystem extends SubsystemBase {
    * Change the I2C port below to match the connection of your color sensor
    */
    private final I2C.Port i2cPort = I2C.Port.kOnboard;
-
+   private final TalonSRX  m_colorspinner        = new TalonSRX(ColorConstants.ColorWheelSpinner);
   /**
    * A Rev Color Sensor V3 object is constructed with an I2C port as a 
    * parameter. The device will be automatically initialized with default 
@@ -83,11 +86,18 @@ public class ColorWheelSubSystem extends SubsystemBase {
      
     } 
     
-     
+    public void spinColorWheel () {
+// ACTION : add stuff from color branch here
+        m_colorspinner.set(ControlMode.PercentOutput,  0.25);
+
+    } 
+
     @Override
     public void periodic() {
       // This method will be called once per scheduler run
       
+      // For testing only remove this line for comepition
+     
       Color detectedColor = m_colorSensor.getColor();
       SmartDashboard.putString("ColorString", detectedColor.toString());
  
@@ -118,8 +128,9 @@ public class ColorWheelSubSystem extends SubsystemBase {
         SmartDashboard.putNumber("Confidence", match.confidence);
         SmartDashboard.putString("Detected Color", colorString);
       }
-    
-      }
+
+
+    }
    
     
   

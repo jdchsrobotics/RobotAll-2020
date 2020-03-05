@@ -27,6 +27,7 @@ import frc.robot.subsystems.LifterSubSystem;
 import frc.robot.commands.ColorWheelGetColor;
 import frc.robot.commands.GoAuto;
 import frc.robot.commands.LifterLift;
+import frc.robot.subsystems.BallManagementSubSystem;
 import frc.robot.commands.BallManagementCmds.*;
 
 
@@ -55,7 +56,7 @@ public class RobotContainer {
 
   // Ball Management (shooting and/or pickup)
   private final LifterSubSystem     m_liftermotor = new LifterSubSystem();
-  
+  private final BallManagementSubSystem m_ballSystem = new BallManagementSubSystem();
   // Define the joystick for driver
  // private final Joystick m_stick = new Joystick(OI_Constants.Joystick_1_portID);
 
