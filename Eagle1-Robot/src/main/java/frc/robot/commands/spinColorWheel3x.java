@@ -47,7 +47,8 @@ public class spinColorWheel3x extends CommandBase {
       @Override
       public final void  initialize() {
       // add intis here
-        m_ColorWheelSubSystem.colorInit();
+        m_ColorWheelSubSystem.colorInit(); 
+        m_ColorWheelSubSystem.spinColorWheel ();
         m_ColorWheelSubSystem.spin_wheel3x();
     }
 

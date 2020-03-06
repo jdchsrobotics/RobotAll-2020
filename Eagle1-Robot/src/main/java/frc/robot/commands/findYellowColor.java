@@ -45,6 +45,7 @@ public class findYellowColor extends CommandBase {
       public final void  initialize() {
       // add intis here
         m_ColorWheelSubSystem.colorInit();
+        m_ColorWheelSubSystem.spinColorWheel ();
         m_ColorWheelSubSystem.FindColor("Yellow");
     }
 

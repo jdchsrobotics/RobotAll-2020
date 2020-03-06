@@ -153,27 +153,20 @@ public class ColorWheelSubSystem extends SubsystemBase {
         SmartDashboard.putNumber("Blue", detectedColor.blue);
         SmartDashboard.putNumber("Confidence", match.confidence);
         SmartDashboard.putString("Detected Color", colorString);
-         //setmotor output to 0.25
 
         }
-
       }
 
-    public void spinColorWheel () {
-// ACTION : add stuff from color branch here
-        m_colorspinner.set(ControlMode.PercentOutput,  0.25);
-
-    } 
-
+// Spins wheel 3 revolutions based on the # of "yellow" colors it sees
     public void spin_wheel3x () {
       //spin wheel 3 times:
       int i = 1;
       // i is the number of times you have seen the initial color
-      m_colorspinner.set(ControlMode.PercentOutput,  0.20);
-      String colorString1 = "JACK";
+      // m_colorspinner.set(ControlMode.PercentOutput,  0.20);
+      String colorString1 = "JACK_INIT";
       while (i < 6) {
         // Are we getting this from Periodic
-         Color detectedColor = m_colorSensor.getColor();
+         Color     detectedColor = m_colorSensor.getColor();
          ColorMatchResult match1 = m_colorMatcher.matchClosestColor(detectedColor);
          SmartDashboard.putString("ColorStringConvert", match1.color.toString());
          SmartDashboard.putString("ColorStringBase", colorString1);
@@ -182,31 +175,38 @@ public class ColorWheelSubSystem extends SubsystemBase {
          SmartDashboard.putString("Detected Color", match1.toString());
     
          if (match1.color == kBlueTarget) {
-         colorString1 = "Blue";
+            colorString1 = "Blue";
           } else if (match1.color == kRedTarget) {
-           colorString1 = "Red";
+            colorString1 = "Red";
           } else if (match1.color == kGreenTarget) { 
-          colorString1 = "Green";
-         } else if (match1.color == kYellowTarget) {
+            colorString1 = "Green";
+          } else if (match1.color == kYellowTarget) {
             colorString1 = "Yellow";
-         } else {
-            colorString1 = "Unknown";    }
-         
-        if (colorString1 == "Yellow") {
-          i = i+1;
-        } 
-        else { System.out.println("Not Yellow");
+          } else {
+            colorString1 = "Unknown";    }     
+         if (colorString1 == "Yellow") {
+            System.out.println("Incrementing (i) in LOOP");
+            i = i+1;
+          } 
+         else { System.out.println("Not Yellow");
+          }      
       }
-       
     }
-    }
+
+//  Sets the spinner motor on at constant rate
+    public void spinColorWheel () {
+        m_colorspinner.set(ControlMode.PercentOutput,  0.25);
+
+      } 
+// Method Stops the Spinner Wheel Motor
     public void stopWheelSpinner() {
         m_colorspinner.set(ControlMode.PercentOutput,  0.0);
-      
-     }
+    
+      }
 
     @Override
     public void periodic() {
+    
     }
   
       // This method will be called once per scheduler run

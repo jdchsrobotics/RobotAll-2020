@@ -90,21 +90,21 @@ private void configureDefaultCommands() {
 
    // ControlMap.getkA_Green.whenHeld (new findGreenColor(m_colorwheel));
    // ControlMap.getkB_Red.whenHeld (new findRedColor(m_colorwheel));
-    ControlMap.getkY_Yellow.whenHeld (new findYellowColor(m_colorwheel));
+    ControlMap.getkY_Yellow.whenPressed (new findYellowColor(m_colorwheel));
    // ControlMap.getkX_Blue.whenHeld (new findBlueColor(m_colorwheel));
-     ControlMap.getStart.whenPressed (new spinColorWheel3x(m_colorwheel));
+    ControlMap.getStart.whenPressed     (new spinColorWheel3x(m_colorwheel));
 //  ACTION = Map to LIfter
     // Map lifter
 
     // Map Ball Subsystem
-    ControlMap.getB5_LiftUp.whenHeld (new LifterUp(m_lifterSystem));
+    ControlMap.getB5_LiftUp.whenHeld  (new LifterUp(m_lifterSystem));
     ControlMap.getB3_LiftDown.whenHeld (new LifterDown(m_lifterSystem));
-    ControlMap.getB4_BalLeft.whenHeld (new LifterBalanceLeft(m_lifterSystem));
+    ControlMap.getB4_BalLeft.whenHeld  (new LifterBalanceLeft(m_lifterSystem));
     ControlMap.getB6_BalRight.whenHeld (new LifterBalanceRight(m_lifterSystem));
 
     //  ACTION = Map to Balls
-    ControlMap.getStkLeft_CageUp.whenHeld (new BallCageUp(m_ballSystem));
-    ControlMap.getStkRight_CageUp.whenHeld (new BallCageDown(m_ballSystem));
+    ControlMap.getStkLeft_CageUp.whenHeld   (new BallCageUp(m_ballSystem));
+    ControlMap.getStkRight_CageUp.whenHeld  (new BallCageDown(m_ballSystem));
     ControlMap.getBumpLeft_BallsIN.whenHeld (new BallsIn(m_ballSystem));
     ControlMap.getBumpRight_BallsOUT.whenHeld (new BallsOut(m_ballSystem));
 
