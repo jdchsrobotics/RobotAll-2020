@@ -147,12 +147,12 @@ public class ColorWheelSubSystem extends SubsystemBase {
         SmartDashboard.putString("requiredColor", ReadColor);
   
         SmartDashboard.putString("ColorString", match.color.toString());
-        SmartDashboard.putString("ColorString", colorString);
+        SmartDashboard.putString("ColorString", colorStringY);
         SmartDashboard.putNumber("Red", detectedColor.red);
         SmartDashboard.putNumber("Green", detectedColor.green);
         SmartDashboard.putNumber("Blue", detectedColor.blue);
         SmartDashboard.putNumber("Confidence", match.confidence);
-        SmartDashboard.putString("Detected Color", colorString);
+        SmartDashboard.putString("Detected Color", colorStringY);
 
         }
       }
@@ -173,6 +173,8 @@ public class ColorWheelSubSystem extends SubsystemBase {
          System.out.println("IN 3x WHILE LOOP");
          SmartDashboard.putNumber("Confidence", match1.confidence);
          SmartDashboard.putString("Detected Color", match1.toString());
+         SmartDashboard.putNumber("Number of times initial color is seen", i);
+
     
          if (match1.color == kBlueTarget) {
             colorString1 = "Blue";

@@ -113,14 +113,14 @@ public void setLiftParkingBrake () {
 }
 // Up and Down
 public void moveUpConstantSpeed (){
-    m_lifter.set(-0.25);
+    m_lifter.set(-0.50);
     // ACTION
     // Remove Delay once joystick works
     //  WaitCommand(2);
     // m_lifter.set(0);
 }
 public void moveDownConstantSpeed (){
-    m_lifter.set(0.25);
+    m_lifter.set(0.75);
     // ACTION
     // Remove Delay once joystick works
    // new WaitCommand(2);
@@ -131,14 +131,14 @@ public void moveDownConstantSpeed (){
 // ACTION - add the ablity to send in Joystick left/right from xbox
 public void moveBalanceRight (){
     // set based on xbox left / right
-     m_leveler.set(ControlMode.PercentOutput, -0.5);
+     m_leveler.set(ControlMode.PercentOutput, -0.65);
          // Remove Delay once joystick works
     // new WaitCommand(2);
     // m_lifter.set(0);
 }
 public void moveBalanceLeft (){
     // set based on xbox left / right
-     m_leveler.set(ControlMode.PercentOutput, 0.5);
+     m_leveler.set(ControlMode.PercentOutput, 0.65);
          // Remove Delay once joystick works
    // new WaitCommand(2);
    //  m_lifter.set(0);
