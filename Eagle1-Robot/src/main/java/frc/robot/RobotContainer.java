@@ -104,11 +104,11 @@ private void configureDefaultCommands() {
 // From github.com/Team612/612-2020/xxxxx/RobotContainer.java
    // Color Wheel Commands
 
-    ControlMap.getkA_Green.whenHeld (new findGreenColor(m_colorwheel));
-    ControlMap.getkB_Red.whenHeld (new findRedColor(m_colorwheel));
-    ControlMap.getkY_Yellow.whenHeld (new findYellowColor(m_colorwheel));
-    ControlMap.getkX_Blue.whenHeld (new findBlueColor(m_colorwheel));
-    ControlMap.getStart.whenPressed (new findBlueColor (m_colorwheel));
+   // ControlMap.getkA_Green.whenHeld (new findGreenColor(m_colorwheel));
+   // ControlMap.getkB_Red.whenHeld (new findRedColor(m_colorwheel));
+   // ControlMap.getkY_Yellow.whenHeld (new findYellowColor(m_colorwheel));
+   // ControlMap.getkX_Blue.whenHeld (new findBlueColor(m_colorwheel));
+   //  ControlMap.getStart.whenPressed (new findBlueColor (m_colorwheel));
 //  ACTION = Map to LIfter
     // Map lifter
 
@@ -125,21 +125,7 @@ private void configureDefaultCommands() {
     ControlMap.getBumpRight_BallsOUT.whenHeld (new BallsOut(m_ballSystem));
 
 
-// Rest for reference - can be removed once things are working
-//https://github.com/wpilibsuite/allwpilib/blob/master/wpilibjExamples/src/main/java/edu/wpi/first/wpilibj/examples/hatchbottraditional/RobotContainer.java
-  // Grab the hatch when the 'A' button is pressed.
-  //new JoystickButton(m_driverController, Button.kA.value)
-  //.whenPressed(new GrabHatch(m_hatchSubsystem));
-// Release the hatch when the 'B' button is pressed.
-//new JoystickButton(m_driverController, Button.kB.value)
- // .whenPressed(new ReleaseHatch(m_hatchSubsystem));
-// While holding the shoulder button, drive at half speed
-//new JoystickButton(m_driverController, Button.kBumperRight.value)
-  //.whenHeld(new HalveDriveSpeed(m_robotDrive));
-  
   }
-
-
   /**
    * Use this to pass the autonomous command to the main {@link Robot} class.
    *  FIX for AUTO: Need to uncommend have have our Automnomos code.
