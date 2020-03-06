@@ -162,7 +162,7 @@ public class ColorWheelSubSystem extends SubsystemBase {
       //spin wheel 3 times:
       int i = 1;
       // i is the number of times you have seen the initial color
-      // m_colorspinner.set(ControlMode.PercentOutput,  0.20);
+      m_colorspinner.set(ControlMode.PercentOutput,  0.20);
       String colorString1 = "JACK_INIT";
       while (i < 6) {
         // Are we getting this from Periodic
@@ -177,6 +177,7 @@ public class ColorWheelSubSystem extends SubsystemBase {
 
     
          if (match1.color == kBlueTarget) {
+             
             colorString1 = "Blue";
           } else if (match1.color == kRedTarget) {
             colorString1 = "Red";
@@ -191,8 +192,10 @@ public class ColorWheelSubSystem extends SubsystemBase {
             i = i+1;
           } 
          else { System.out.println("Not Yellow");
-          }      
+          }     
+                m_colorspinner.set(ControlMode.PercentOutput,  0.0);
       }
+
     }
 
 //  Sets the spinner motor on at constant rate
@@ -209,13 +212,13 @@ public class ColorWheelSubSystem extends SubsystemBase {
     @Override
     public void periodic() {
     
-    }
+    
   
       // This method will be called once per scheduler run
       
       // For testing only remove this line for comepition
       // m_colorspinner.set(ControlMode.PercentOutput,  0.25);
-/*
+
       Color detectedColor = m_colorSensor.getColor();
       SmartDashboard.putString("ColorString", detectedColor.toString());
  
@@ -245,7 +248,7 @@ public class ColorWheelSubSystem extends SubsystemBase {
         SmartDashboard.putNumber("Confidence", match.confidence);
         SmartDashboard.putString("Detected Color", colorString);
       }
-*/
+
 
 }
    

@@ -28,14 +28,14 @@ public class LifterUp extends CommandBase {
     @Override
     public final void initialize () {
         m_lifter.setMotorBrake();
-        m_lifter.releaseLiftParkingBrake();
+      //  m_lifter.releaseLiftParkingBrake();
     }
 
     // POSSBILE ACTION - use the joystick value for up/down speed
     @Override
     public final void execute () {
         // remove to real code connected to a button later
-        m_lifter.releaseLiftParkingBrake();
+       // m_lifter.releaseLiftParkingBrake();
         // ACTION - setup to use xbox controller
         m_lifter.moveUpConstantSpeed();
     }
@@ -44,7 +44,7 @@ public class LifterUp extends CommandBase {
     @Override
     public final void end (boolean interrupted) {
         m_lifter.setLifterMotorSpeed(0);
-        m_lifter.setLiftParkingBrake();
+     //   m_lifter.setLiftParkingBrake();
         m_lifter.setMotorBrake();
     }
 
