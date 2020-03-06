@@ -4,7 +4,7 @@
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
-
+// 10.32.89.9
 package frc.robot;
 
 import edu.wpi.first.wpilibj.GenericHID;
@@ -22,29 +22,13 @@ import frc.robot.Controls.ControlMap;
 import frc.robot.Controls.xboxControllerMap;
 import frc.robot.subsystems.DriveSubSystem;
 import frc.robot.subsystems.LifterSubSystem;
-import frc.robot.commands.Default_Drive;
-import frc.robot.commands.LifterBalanceLeft;
 import frc.robot.commands.*;
 // Add after Autocode is written
 // import frc.robot.commands.GoAuto.*;
 
 import frc.robot.subsystems.ColorWheelSubSystem;
 import frc.robot.subsystems.LifterSubSystem;
-import frc.robot.commands.findRedColor;
-import frc.robot.commands.findGreenColor;
-import frc.robot.commands.findBlueColor;
-import frc.robot.commands.findYellowColor;
-import frc.robot.commands.GoAuto;
-import frc.robot.commands.LifterBalanceRight;
-import frc.robot.commands.LifterUp;
 import frc.robot.subsystems.BallManagementSubSystem;
-import frc.robot.commands.BallCageDown;
-import frc.robot.commands.BallCageUp;
-import frc.robot.commands.BallsIn;
-import frc.robot.commands.BallsOut;
-
-
-
 // import frc.robot.Constants.eagle_DriveConstants;
 import frc.robot.Constants.OI_Constants;
 
@@ -106,9 +90,9 @@ private void configureDefaultCommands() {
 
    // ControlMap.getkA_Green.whenHeld (new findGreenColor(m_colorwheel));
    // ControlMap.getkB_Red.whenHeld (new findRedColor(m_colorwheel));
-   // ControlMap.getkY_Yellow.whenHeld (new findYellowColor(m_colorwheel));
+    ControlMap.getkY_Yellow.whenHeld (new findYellowColor(m_colorwheel));
    // ControlMap.getkX_Blue.whenHeld (new findBlueColor(m_colorwheel));
-   //  ControlMap.getStart.whenPressed (new findBlueColor (m_colorwheel));
+     ControlMap.getStart.whenPressed (new spinColorWheel3x(m_colorwheel));
 //  ACTION = Map to LIfter
     // Map lifter
 

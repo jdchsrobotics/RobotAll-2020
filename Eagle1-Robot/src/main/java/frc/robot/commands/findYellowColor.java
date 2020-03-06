@@ -36,24 +36,22 @@ public class findYellowColor extends CommandBase {
 
     public findYellowColor (ColorWheelSubSystem subSystem) {
       m_ColorWheelSubSystem = subSystem;
-  // CONTINUE FROM HERE ADD REQUIREMENT FROM THIS LINK
-  // https://github.com/wpilibsuite/allwpilib/blob/master/wpilibjExamples/src/main/java/edu/wpi/first/wpilibj/templates/commandbased/commands/ExampleCommand.java
-       addRequirements(m_ColorWheelSubSystem);
+      addRequirements(m_ColorWheelSubSystem);
 
     }
-
 
       // Called when the command is initially scheduled.
       @Override
       public final void  initialize() {
       // add intis here
         m_ColorWheelSubSystem.colorInit();
+        m_ColorWheelSubSystem.FindColor("Yellow");
     }
 
      @Override
      public final void execute() {
 
-        m_ColorWheelSubSystem.FindColor("Yellow");
+   
      }
   
 

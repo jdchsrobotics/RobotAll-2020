@@ -88,16 +88,15 @@ public class ColorWheelSubSystem extends SubsystemBase {
      
     } 
     
-
-// Make for yellow first
-    public void FindColor(String requiredColor) {
-
-      /*
+     /*
       RedColor read = Blue FindColor
       GreenColor read= Yellow FindColor
       BlueColor read = Red FindColor
       YellowColor read= green FindColor
       */
+
+    public void FindColor(String requiredColor) {
+
       String ReadColor;
      
       if (requiredColor == "Red") {
@@ -111,15 +110,26 @@ public class ColorWheelSubSystem extends SubsystemBase {
       } else {
         ReadColor = "Unkown";
       }
-      
     
-      String colorStringY;
-      // Color detectedColor = m_colorSensor.getColor();
+       String colorStringY;
+       Color detectedColor = m_colorSensor.getColor();
+       ColorMatchResult match = m_colorMatcher.matchClosestColor(detectedColor);
       SmartDashboard.putString("ColorString", detectedColor.toString());
       colorStringY = "Unknown";
-      
+      if (match.color == kBlueTarget) {
+        colorStringY = "Blue";
+      } else if (match.color == kRedTarget) {
+        colorStringY = "Red";
+      } else if (match.color == kGreenTarget) { 
+       colorStringY = "Green";
+      } else if (match.color == kYellowTarget) {
+        colorStringY = "Yellow";
+      } else {
+        colorStringY = "Unknown";    }
+
     while (ReadColor != colorStringY) {
-      ColorMatchResult match = m_colorMatcher.matchClosestColor(detectedColor);
+        detectedColor = m_colorSensor.getColor();
+        match = m_colorMatcher.matchClosestColor(detectedColor);
         SmartDashboard.putNumber("Confidence", match.confidence);
         SmartDashboard.putString("Detected Color", match.toString());
       
@@ -160,11 +170,14 @@ public class ColorWheelSubSystem extends SubsystemBase {
       int i = 1;
       // i is the number of times you have seen the initial color
       m_colorspinner.set(ControlMode.PercentOutput,  0.20);
-      String colorString1 = "Red";
+      String colorString1 = "JACK";
       while (i < 6) {
         // Are we getting this from Periodic
-      // Color detectedColor = m_colorSensor.getColor();
+         Color detectedColor = m_colorSensor.getColor();
          ColorMatchResult match1 = m_colorMatcher.matchClosestColor(detectedColor);
+         SmartDashboard.putString("ColorStringConvert", match1.color.toString());
+         SmartDashboard.putString("ColorStringBase", colorString1);
+         System.out.println("IN 3x WHILE LOOP");
          SmartDashboard.putNumber("Confidence", match1.confidence);
          SmartDashboard.putString("Detected Color", match1.toString());
     
@@ -194,11 +207,13 @@ public class ColorWheelSubSystem extends SubsystemBase {
 
     @Override
     public void periodic() {
+    }
+  
       // This method will be called once per scheduler run
       
       // For testing only remove this line for comepition
       // m_colorspinner.set(ControlMode.PercentOutput,  0.25);
-
+/*
       Color detectedColor = m_colorSensor.getColor();
       SmartDashboard.putString("ColorString", detectedColor.toString());
  
@@ -228,9 +243,9 @@ public class ColorWheelSubSystem extends SubsystemBase {
         SmartDashboard.putNumber("Confidence", match.confidence);
         SmartDashboard.putString("Detected Color", colorString);
       }
+*/
 
-
-    }
+}
    
     
   

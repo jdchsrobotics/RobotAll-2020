@@ -48,12 +48,13 @@ public class findGreenColor extends CommandBase {
       public final void  initialize() {
       // add intis here
         m_ColorWheelSubSystem.colorInit();
+        m_ColorWheelSubSystem.FindColor("Green");
     }
 
     @Override
     public final void execute() {
 
-       m_ColorWheelSubSystem.FindColor("Green");
+      
     }
  
 
