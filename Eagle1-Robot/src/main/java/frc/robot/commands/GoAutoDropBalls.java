@@ -19,21 +19,24 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.Constants;
 import frc.robot.subsystems.DriveSubSystem;
-
+import frc.robot.subsystems.BallManagementSubSystem;
 import edu.wpi.first.wpilibj.RobotController;
 
-public class GoAuto extends CommandBase {
+public class GoAutoDropBalls extends CommandBase {
   /**
    * Change the I2C port below to match the connection of your color sensor
    */
 
   private final DriveSubSystem m_DriveSubSystem;
+  private final BallManagementSubSystem m_BallManagementSubSystem;
 
-  public GoAuto (DriveSubSystem subSystem) {
+  public GoAutoDropBalls (DriveSubSystem subSystem, BallManagementSubSystem subSystem2) {
     m_DriveSubSystem = subSystem;
+    m_BallManagementSubSystem = subSystem2;
 // CONTINUE FROM HERE ADD REQUIREMENT FROM THIS LINK
 // https://github.com/wpilibsuite/allwpilib/blob/master/wpilibjExamples/src/main/java/edu/wpi/first/wpilibj/templates/commandbased/commands/ExampleCommand.java
      addRequirements(m_DriveSubSystem);
+     addRequirements(m_BallManagementSubSystem);
 
   }
 
@@ -41,22 +44,26 @@ public class GoAuto extends CommandBase {
   @Override
   public void initialize() {
     System.out.println("Temporary Auto-Drive Forward");
-   long millisecondsToRun = 1500000;
-   //  long millisecondsToRun = 2300000; // This should run 1000ms = 1 s.
+  long millisecondsToRun = 2300000; // This should run 1000ms = 1 s.
     long initTime = RobotController.getFPGATime();
 
     while (RobotController.getFPGATime() - initTime <= millisecondsToRun) {
          m_DriveSubSystem.Drive(-0.5, 0);
+         m_BallManagementSubSystem.upBallCage(0.1);
+         
     }
     m_DriveSubSystem.Drive(0,0);  
+    m_BallManagementSubSystem.upBallCage(0.05);
+    m_BallManagementSubSystem.returnBalls();
+    
     // new WaitCommand(2);
-   /*
-    System.out.println("Temporary Auto-Drive Rotate");
+   
+    //System.out.println("Temporary Auto-Drive Rotate");
     initTime = RobotController.getFPGATime();
-    while (RobotController.getFPGATime() - initTime <= millisecondsToRun) {
-    m_DriveSubSystem.Drive(0, .5);
+    while (RobotController.getFPGATime() - initTime >= millisecondsToRun) {
+        
     }
-
+    /*
      System.out.println("Temporary Auto-Drive Stop Now");
     initTime = RobotController.getFPGATime();
     while (RobotController.getFPGATime() - initTime <= millisecondsToRun) {
@@ -84,43 +91,3 @@ public class GoAuto extends CommandBase {
   }
 
 }
-
-
-
-// import frc.robot.shootersubsystem; Fix after shooter subsystem exists.
-/*
-public class DefaultAuto extends SequentialCommandGroup {
-    /**
-     * Creates a new ComplexAuto.
-     *
-     * @param drive The drive subsystem this command will run on
-     * @param hatch The hatch subsystem this command will run on
-     */
-    /*
-    public DefaultAuto(DriveSubSystem drive) {
-      addCommands(
-          // Drive forward the specified distance
-          
-          new DriveForward(AutoConstants.AutoDriveDistanceInches, AutoConstants.AutoDriveSpeed,
-                            drive),
-    
-                            @Override
-                            public void execute() {
-                              m_drive.arcadeDrive(AutoConstants.AutoDriveSpeed, AutoConstants.AutoDriveRotation);
-                            }
-
-
-                             @Override
-                              public final void end (boolean interrupted) {
-       
-                            }
-
-                             @Override
-                              public boolean isFinished() {
-                               return true;
-                               //return false;
-                              }                     
-    }
-  }
-
-  */

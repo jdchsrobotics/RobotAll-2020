@@ -131,14 +131,14 @@ public void moveDownConstantSpeed (){
 // ACTION - add the ablity to send in Joystick left/right from xbox
 public void moveBalanceRight (){
     // set based on xbox left / right
-     m_leveler.set(ControlMode.PercentOutput, -0.65);
+     m_leveler.set(ControlMode.PercentOutput, -0.85);
          // Remove Delay once joystick works
     // new WaitCommand(2);
     // m_lifter.set(0);
 }
 public void moveBalanceLeft (){
     // set based on xbox left / right
-     m_leveler.set(ControlMode.PercentOutput, 0.65);
+     m_leveler.set(ControlMode.PercentOutput, 0.85);
          // Remove Delay once joystick works
    // new WaitCommand(2);
    //  m_lifter.set(0);

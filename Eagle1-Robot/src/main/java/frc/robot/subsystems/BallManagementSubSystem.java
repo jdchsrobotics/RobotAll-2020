@@ -46,11 +46,11 @@ public class BallManagementSubSystem extends SubsystemBase {
     }
 
     public void downBallCage () {
-        m_ballupdownWM.set (ControlMode.PercentOutput, -0.1);
+        m_ballupdownWM.set (ControlMode.PercentOutput, -0.35);
     }
 
-    public void upBallCage () {
-        m_ballupdownWM.set (ControlMode.PercentOutput, 0.6);
+    public void upBallCage (double speed) {
+        m_ballupdownWM.set (ControlMode.PercentOutput, speed);
     }
 
     public void setCageMotorBrake(double speed){

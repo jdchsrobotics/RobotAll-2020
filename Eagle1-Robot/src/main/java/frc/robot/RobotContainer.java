@@ -55,6 +55,8 @@ public class RobotContainer {
   // Ball Management (shooting and/or pickup)
   private final LifterSubSystem     m_lifterSystem = new LifterSubSystem();
   private final BallManagementSubSystem m_ballSystem = new BallManagementSubSystem();
+  //private final GoAutoDropBalls c_goAutoDropBalls = new GoAutoDropBalls(m_robotDrive, m_ballSystem);
+
   // Define the joystick for driver
  // private final Joystick m_stick = new Joystick(OI_Constants.Joystick_1_portID);
 
@@ -118,8 +120,10 @@ private void configureDefaultCommands() {
    */
 
   public Command getAutonomousCommand() {
-    // An ExampleCommand will run in autonomous
+    // An ExampleCommand will run in autonomous  
+    //return (c_goAutoDropBalls);
     return (c_goAutoCmd);
+   
     // return(null);
 
   }
